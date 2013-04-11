@@ -1,0 +1,5 @@
+insert 0 Q ;
+insert 0 W ; 
+revert 1 ;  
+insert 0 E ; 
+revert 2 ;
