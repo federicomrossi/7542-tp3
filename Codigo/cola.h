@@ -12,15 +12,15 @@
 #define COLA_H
 
 
-struct Nodo {
-	int dato;				// Dato del nodo
-	Nodo* siguiente;		// Referencia al siguiente nodo
-};
-
-
 class Cola
 {
 	private:
+
+		struct Nodo {
+			int dato;				// Dato del nodo
+			Nodo* siguiente;		// Referencia al siguiente nodo
+		};
+
 		int cantElementos;
 		Nodo *primero;
 		Nodo *ultimo;
