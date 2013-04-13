@@ -1,0 +1,3 @@
+cola.o cola.deps : cola.cpp cola.h
+
+cola.h:
