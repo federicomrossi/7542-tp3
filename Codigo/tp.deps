@@ -1,3 +1,0 @@
-tp.o tp.deps : tp.cpp cola.h
-
-cola.h:
