@@ -128,4 +128,6 @@ int main(int argc, char* argv[]) {
 	pruebaCola();
 	pruebaLista();
 
+	return 0;
+
 }
