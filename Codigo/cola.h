@@ -3,25 +3,27 @@
  * Clase COLA
  * ............................................................................
  * Implementación de la clase Cola. Esta puede almacenar cualquier tipo de
- * datos.
+ * datos. Además, se almacenan referencias a los datos, quedando en el usuario
+ * la responsabilidad de asegurar que estos sean destruidos fuera del alcance
+ * de la cola.
  *
  * ****************************************************************************
  * ***************************************************************************/
 
 
-using namespace std;
-
 
 
 
 /* ****************************************************************************
- * DECLARACIÓN
+ * DECLARACIÓN DE LA CLASE
  * ***************************************************************************/
+
 
 template < typename Tipo > 
 class Cola {
 
 private:
+
 	struct Nodo {
 		Tipo& dato;				// Dato al que referencia el nodo
 		Nodo *siguiente;		// Puntero al siguiente nodo
@@ -30,16 +32,37 @@ private:
 		Nodo(Tipo& dato) : dato(dato), siguiente(NULL) { }
 	};
 
-	int cantElementos;
-	Nodo *primero;
-	Nodo *ultimo;
+	int cantElementos;			// Número de elementos en la cola
+	Nodo *primero;				// Puntero al primer elemento de la cola
+	Nodo *ultimo;				// Puntero al último elemento de la cola
 
 public:
+
+	// Constructor
 	Cola();
+
+	// Destructor
 	~Cola();
+
+	// Verifica si una cola tiene o no elementos.
+	// POST: devuelve true si la cola esta vacía o false en su defecto.
 	bool estaVacia();
+
+	// Agrega un nuevo elemento a la cola.
+	// PRE: 'dato' es el dato que se desea encolar.
+	// POST: se agregó el nuevo elemento a la cola, el cual se encuentra
+	// al final de la cola.
 	void encolar(Tipo& dato);
+
+
+	// Saca el primer elemento de la cola.
+	// POST: se retorna el dato que ha sido desencolado. De no haber
+	// elementos en la cola, se lanzará un error de tipo ERROR.
 	Tipo& desencolar();
+
+	// Obtiene el valor del primer elemento de la cola. 
+	// POST: se devuelve el dato que se encuentra primero en la cola. De no
+	// haber elementos en la cola, se lanzará un error de tipo ERROR.
 	Tipo& verPrimero();
 };
 
@@ -47,8 +70,9 @@ public:
 
 
 /* ****************************************************************************
- * DEFINICIÓN
+ * DEFINICIÓN DE LA CLASE
  * ***************************************************************************/
+
 
 // Constructor
 template <typename Tipo >
@@ -58,10 +82,10 @@ Cola< Tipo >::Cola() {
 	this->ultimo = NULL;
 }
 
+
 // Destructor
 template <typename Tipo >
 Cola< Tipo >::~Cola() {
-	
 	Nodo *nodo_actual, *nodo;
 
 	// Si hay elementos, comenzamos la eliminación
@@ -79,16 +103,21 @@ Cola< Tipo >::~Cola() {
 	}
 }
 
-//
+
+// Verifica si una cola tiene o no elementos.
+// POST: devuelve true si la cola esta vacía o false en su defecto.
 template <typename Tipo >
 bool Cola< Tipo >::estaVacia() {
 	return (this->cantElementos == 0);
 }
 
-//
+
+// Agrega un nuevo elemento a la cola.
+// PRE: 'dato' es el dato que se desea encolar.
+// POST: se agregó el nuevo elemento a la cola, el cual se encuentra al final
+// de la cola.
 template <typename Tipo >
 void Cola< Tipo >::encolar(Tipo& dato) {
-	
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
 
@@ -102,13 +131,17 @@ void Cola< Tipo >::encolar(Tipo& dato) {
 	this->cantElementos++;
 }
 
-//
+
+// Saca el primer elemento de la cola.
+// POST: se retorna el dato que ha sido desencolado. De no haber
+// elementos en la cola, se lanzará un error de tipo ERROR.
 template <typename Tipo >
 Tipo& Cola< Tipo >::desencolar() {
-	
+	// Tomamos dato del nodo
 	Nodo *nodo = this->primero;
 	Tipo& dato = nodo->dato;
 
+	// Desenlazamos nodo y liberamos memoria.
 	if(nodo->siguiente)
 		this->primero = nodo->siguiente;
 	else
@@ -120,7 +153,10 @@ Tipo& Cola< Tipo >::desencolar() {
 	return dato;
 }
 
-//
+
+// Obtiene el valor del primer elemento de la cola. 
+// POST: se devuelve el dato que se encuentra primero en la cola. De no
+// haber elementos en la cola, se lanzará un error de tipo ERROR.
 template <typename Tipo >
 Tipo& Cola< Tipo >::verPrimero() {
 

@@ -1,0 +1,5 @@
+tp.o tp.deps : tp.cpp cola.h lista.h
+
+cola.h:
+
+lista.h:

@@ -3,25 +3,27 @@
  * Clase LISTA
  * ............................................................................
  * Implementación de la clase Lista. Esta puede almacenar cualquier tipo de
- * datos.
+ * datos. Además, se almacenan referencias a los datos, quedando en el usuario
+ * la responsabilidad de asegurar que estos sean destruidos fuera del alcance
+ * de la lista.
  *
  * ****************************************************************************
  * ***************************************************************************/
 
 
-using namespace std;
-
 
 
 
 /* ****************************************************************************
- * DECLARACIÓN
+ * DECLARACIÓN DE LA CLASE
  * ***************************************************************************/
+
 
 template < typename Tipo > 
 class Lista {
 
 private:
+
 	struct Nodo {
 		Tipo& dato;				// Dato al que referencia el nodo
 		Nodo *siguiente;		// Puntero al siguiente nodo
@@ -30,22 +32,54 @@ private:
 		Nodo(Tipo& dato) : dato(dato), siguiente(NULL) { }
 	};
 
-	Nodo *primero;		// Puntero al primer elemento de la lista
-	Nodo *ultimo;		// Puntero al último elemento de la lista
-	size_t largo;		// Tamaño que representa la cantidad de 
-						// elementos que contiene la lista
+	Nodo *primero;				// Puntero al primer elemento de la lista
+	Nodo *ultimo;				// Puntero al último elemento de la lista
+	size_t largo;				// Tamaño que representa la cantidad de 
+								// elementos que contiene la lista
 
 public:
+
+	// Constructor
 	Lista();
+
+	// Destructor
 	~Lista();
+
+	// Verifica si una lista se encuentra vacía.
+	// POST: Devuelve verdadero si la lista se encuentra vacía o falso en 
+	// caso contrario.
 	bool estaVacia();
+
+	// Devuelve el tamaño actual de la lista.
 	size_t tamanio();
+
+	// Inserta un elemento al principio de la lista.
+	// PRE: 'dato' es el dato a insertar.
 	void insertarPrimero(Tipo& dato);
+
+	// Inserta un elemento en el último lugar de la lista.
+	// PRE: 'dato' es el dato a insertar.
 	void insertarUltimo(Tipo& dato);
+
+	// Obtiene el valor del primer elemento de la lista. 
+	// POST: se devuelve el dato que se encuentra primero en la lista. De no
+	// haber elementos en la lista, se lanzará un error de tipo ERROR.
 	Tipo& verPrimero();
+
+	// Obtiene el valor del último elemento de la lista. 
+	// POST: se devuelve el dato que se encuentra último en la lista. De no
+	// haber elementos en la lista, se lanzará un error de tipo ERROR.
 	Tipo& verUltimo();
+
+	// Elimina el primer elemento de la lista. 
+	// POST: se retorna el elemento eliminado de la lista. De no
+	// haber elementos en la lista, se lanzará un error de tipo ERROR.
 	Tipo& eliminarPrimero();
-	Tipo& eliminarUltimo();
+
+	// Operador []
+	// Permite acceder a los índices de la lista mediante la notación 
+	// lista[i], donde i es un número entero comprendido entre [0, n-1],
+	// siendo n el tamaño de la lista.
 	Tipo& operator [] (const int indice);
 };
 
@@ -53,8 +87,9 @@ public:
 
 
 /* ****************************************************************************
- * DEFINICIÓN
+ * DEFINICIÓN DE LA CLASE
  * ***************************************************************************/
+
 
 // Constructor
 template <typename Tipo >
@@ -64,26 +99,39 @@ Lista< Tipo >::Lista() {
 	this->ultimo = NULL;
 }
 
+
 // Destructor
 template <typename Tipo >
 Lista< Tipo >::~Lista() {
-	
-	cout << "Destruir lista" << endl;
+	Nodo *nodo;
+
+	// Recorremos los nodos y los destruimos
+	while(this->primero) {
+		nodo = this->primero;
+		this->primero = nodo->siguiente;
+		delete nodo;
+	}
 }
 
-//
+
+// Verifica si una lista se encuentra vacía.
+// POST: Devuelve verdadero si la lista se encuentra vacía o falso en 
+// caso contrario.
 template <typename Tipo >
 bool Lista< Tipo >::estaVacia() {
 	return (this->largo == 0);
 }
 
-//
+
+// Devuelve el tamaño actual de la lista.
 template <typename Tipo >
 size_t Lista< Tipo >::tamanio() {
 	return this->largo;
 }
 
-//
+
+// Inserta un elemento al principio de la lista.
+// PRE: 'dato' es el dato a insertar.
 template <typename Tipo >
 void Lista< Tipo >::insertarPrimero(Tipo& dato) {
 
@@ -100,7 +148,9 @@ void Lista< Tipo >::insertarPrimero(Tipo& dato) {
 	this->largo++;
 }
 
-//
+
+// Inserta un elemento en el último lugar de la lista.
+// PRE: 'dato' es el dato a insertar.
 template <typename Tipo >
 void Lista< Tipo >::insertarUltimo(Tipo& dato) {
 
@@ -123,7 +173,10 @@ void Lista< Tipo >::insertarUltimo(Tipo& dato) {
 	this->largo++;
 }
 
-//
+
+// Obtiene el valor del primer elemento de la lista. 
+// POST: se devuelve el dato que se encuentra primero en la lista. De no
+// haber elementos en la lista, se lanzará un error de tipo ERROR.
 template <typename Tipo >
 Tipo& Lista< Tipo >::verPrimero() {
 
@@ -132,7 +185,10 @@ Tipo& Lista< Tipo >::verPrimero() {
 	return (this->primero->dato);
 }
 
-//
+
+// Obtiene el valor del último elemento de la lista. 
+// POST: se devuelve el dato que se encuentra último en la lista. De no
+// haber elementos en la lista, se lanzará un error de tipo ERROR.
 template <typename Tipo >
 Tipo& Lista< Tipo >::verUltimo() {
 
@@ -141,7 +197,10 @@ Tipo& Lista< Tipo >::verUltimo() {
 	return (this->ultimo->dato);
 }
 
-//
+
+// Elimina el primer elemento de la lista. 
+// POST: se retorna el elemento eliminado de la lista. De no
+// haber elementos en la lista, se lanzará un error de tipo ERROR.
 template <typename Tipo >
 Tipo& Lista< Tipo >::eliminarPrimero() {
 
@@ -164,7 +223,11 @@ Tipo& Lista< Tipo >::eliminarPrimero() {
 	return dato;
 }
 
-//
+
+// Operador []
+// Permite acceder a los índices de la lista mediante la notación lista[i], 
+// donde i es un número entero comprendido entre [0, n-1], siendo n el tamaño
+// de la lista.
 template <typename Tipo >
 Tipo& Lista< Tipo >::operator [] (const int indice) {
 

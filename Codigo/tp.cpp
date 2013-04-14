@@ -125,6 +125,7 @@ void pruebaLista() {
 
 int main(int argc, char* argv[]) {
 
+	pruebaCola();
 	pruebaLista();
 
 }
