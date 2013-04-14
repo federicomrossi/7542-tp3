@@ -1,24 +1,28 @@
 /* ****************************************************************************
  * ****************************************************************************
- * Clase COLA
- * ............................................................................
- * Implementación de la clase Cola.
- *
+ * Clase RXARCHIVO
  * ****************************************************************************
  * ***************************************************************************/
 
 
-#ifndef COLECCION_H
-#define COLECCION_H
+#ifndef RX_ARCHIVO_H
+#define RX_ARCHIVO_H
 
 
-class Coleccion
-{
-private:
-	int cantElementos;
+#include "receptor.h"
+
+
+
+class RxArchivo:public Receptor {
 
 public:
-	int getCantElementos();
+
+	// Constructor
+	RxArchivo();
+
+	// Se ejecuta la recepción de un dato desde un archivo.
+	virtual void recibir();
 };
 
-#endif	// COLECCION_H
+
+#endif

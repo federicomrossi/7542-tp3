@@ -12,6 +12,9 @@
 
 
 
+#ifndef COLA_H
+#define COLA_H
+
 
 
 /* ****************************************************************************
@@ -164,3 +167,6 @@ Tipo& Cola< Tipo >::verPrimero() {
 
 	return (this->primero->dato);
 }
+
+
+#endif

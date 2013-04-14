@@ -12,6 +12,8 @@
 
 
 
+#ifndef LISTA_H
+#define LISTA_H
 
 
 /* ****************************************************************************
@@ -94,9 +96,9 @@ public:
 // Constructor
 template <typename Tipo >
 Lista< Tipo >::Lista() {
-	this->largo = 0;
 	this->primero = NULL;
 	this->ultimo = NULL;
+	this->largo = 0;
 }
 
 
@@ -243,3 +245,5 @@ Tipo& Lista< Tipo >::operator [] (const int indice) {
 	return nodo->dato;
 }
 
+
+#endif
