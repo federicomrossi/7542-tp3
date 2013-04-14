@@ -31,12 +31,12 @@ private:
 		Nodo *siguiente;		// Puntero al siguiente nodo
 
 		// Constructor
-		Nodo(Tipo& dato) : dato(dato), siguiente(NULL) { }
+		Nodo(Tipo& dato) : dato(dato), siguiente(0) { }
 	};
 
 	Nodo *primero;				// Puntero al primer elemento de la lista
 	Nodo *ultimo;				// Puntero al último elemento de la lista
-	size_t largo;				// Tamaño que representa la cantidad de 
+	int largo;					// Tamaño que representa la cantidad de 
 								// elementos que contiene la lista
 
 public:
@@ -53,7 +53,7 @@ public:
 	bool estaVacia();
 
 	// Devuelve el tamaño actual de la lista.
-	size_t tamanio();
+	int tamanio();
 
 	// Inserta un elemento al principio de la lista.
 	// PRE: 'dato' es el dato a insertar.
@@ -96,8 +96,8 @@ public:
 // Constructor
 template <typename Tipo >
 Lista< Tipo >::Lista() {
-	this->primero = NULL;
-	this->ultimo = NULL;
+	this->primero = 0;
+	this->ultimo = 0;
 	this->largo = 0;
 }
 
@@ -127,7 +127,7 @@ bool Lista< Tipo >::estaVacia() {
 
 // Devuelve el tamaño actual de la lista.
 template <typename Tipo >
-size_t Lista< Tipo >::tamanio() {
+int Lista< Tipo >::tamanio() {
 	return this->largo;
 }
 
@@ -161,7 +161,7 @@ void Lista< Tipo >::insertarUltimo(Tipo& dato) {
 
 	// Seteamos los campos del nodo
 	nodo->dato = dato;
-	nodo->siguiente = NULL;
+	nodo->siguiente = 0;
 
 	// Si no hay elementos, el último también es el primero
 	if(!this->ultimo)
@@ -220,7 +220,7 @@ Tipo& Lista< Tipo >::eliminarPrimero() {
 	delete nodo;
 
 	// Verificamos si quedan mas elementos en la lista
-	if (this->largo == 0) this->ultimo = NULL;
+	if (this->largo == 0) this->ultimo = 0;
 
 	return dato;
 }

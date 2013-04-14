@@ -32,7 +32,7 @@ private:
 		Nodo *siguiente;		// Puntero al siguiente nodo
 
 		// Constructor
-		Nodo(Tipo& dato) : dato(dato), siguiente(NULL) { }
+		Nodo(Tipo& dato) : dato(dato), siguiente(0) { }
 	};
 
 	int cantElementos;			// Número de elementos en la cola
@@ -81,8 +81,8 @@ public:
 template <typename Tipo >
 Cola< Tipo >::Cola() {
 	this->cantElementos = 0;
-	this->primero = NULL;
-	this->ultimo = NULL;
+	this->primero = 0;
+	this->ultimo = 0;
 }
 
 
@@ -148,7 +148,7 @@ Tipo& Cola< Tipo >::desencolar() {
 	if(nodo->siguiente)
 		this->primero = nodo->siguiente;
 	else
-		this->primero = this->ultimo = NULL;
+		this->primero = this->ultimo = 0;
 
 	delete nodo;
 	this->cantElementos--;
