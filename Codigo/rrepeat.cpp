@@ -18,8 +18,8 @@ RRepeat::RRepeat(int n, int m, int r, int i) {
 }
 
 
-// Aplica la regla sobre una cola de transformaciones
-void RRepeat::aplicar(Cola< string >& cTransformaciones) {
+// Aplica la regla sobre una pila de transformaciones
+void RRepeat::aplicar(Pila< string >& pTransformaciones) {
 	
 	cout << "Se aplico RRepeat" << endl;
 }

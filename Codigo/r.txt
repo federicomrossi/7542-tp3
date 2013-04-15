@@ -1,0 +1,3 @@
+lowercase 2 5 ;
+uppercase 3 3 ;
+print ;

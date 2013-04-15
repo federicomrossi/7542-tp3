@@ -9,7 +9,7 @@
 
 
 #include <iostream>
-#include "cola.h"
+#include "pila.h"
 
 using namespace std;
 
@@ -19,8 +19,8 @@ class Regla {
 
 public:
 
-	// Aplica la regla sobre una cola de transformaciones.
-	virtual void aplicar(Cola< string >& cTransformaciones) = 0;
+	// Aplica la regla sobre una pila de transformaciones.
+	virtual void aplicar(Pila< string >& pTransformaciones) = 0;
 };
 
 

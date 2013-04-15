@@ -13,8 +13,9 @@
 RPrint::RPrint(Transmisor *tx) : tx(tx) { }
 
 
-// Aplica la regla sobre una cola de transformaciones
-void RPrint::aplicar(Cola< string >& cTransformaciones) {
+// Aplica la regla sobre una pila de transformaciones. La regla emite la
+// última modificación realizada.
+void RPrint::aplicar(Pila< string >& pTransformaciones) {
 	
-	cout << "Se aplico RPrint" << endl;
+	tx->transmitir(pTransformaciones.verTope());
 }

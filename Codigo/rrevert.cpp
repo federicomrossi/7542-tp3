@@ -15,8 +15,8 @@ RRevert::RRevert(int i) {
 }
 
 
-// Aplica la regla sobre una cola de transformaciones
-void RRevert::aplicar(Cola< string >& cTransformaciones) {
+// Aplica la regla sobre una pila de transformaciones
+void RRevert::aplicar(Pila< string >& pTransformaciones) {
 	
 	cout << "Se aplico RRevert" << endl;
 }

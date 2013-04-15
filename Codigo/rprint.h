@@ -25,8 +25,9 @@ public:
 	// Constructor
 	RPrint(Transmisor *tx);
 
-	// Aplica la regla sobre una cola de transformaciones
-	void aplicar(Cola< string >& cTransformaciones);
+	// Aplica la regla sobre una pila de transformaciones. La regla emite la
+	// última modificación realizada.
+	void aplicar(Pila< string >& pTransformaciones);
 };
 
 

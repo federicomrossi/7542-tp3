@@ -6,7 +6,7 @@
 
 
 #include "word_mangling.h"
-#include "cola.h"
+#include "pila.h"
 
 
 
@@ -26,14 +26,14 @@ void WordMangling::ejecutar(Receptor *rxPalabras) {
 
 	while(!palabra.empty())
 	{
-		// Creamos la cola de transformaciones
-		Cola< string > cTransformaciones;
-		// Encolamos la palabra original
-		cTransformaciones.encolar(palabra);
+		// Creamos la pila de transformaciones
+		Pila< string > pTransformaciones;
+		// Apilamos la palabra original
+		pTransformaciones.apilar(palabra);
 
 		// Aplicamos reglas a palabra
 		for(int i=0; i < this->lReglas.tamanio(); i++)
-			this->lReglas[i]->aplicar(cTransformaciones);
+			this->lReglas[i]->aplicar(pTransformaciones);
 
 		palabra = rxPalabras->recibir();
 	}

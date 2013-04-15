@@ -25,8 +25,8 @@ public:
 	// Constructor
 	RInsert(int i, string mmm);
 
-	// Aplica la regla sobre una cola de transformaciones
-	void aplicar(Cola< string >& cTransformaciones);
+	// Aplica la regla sobre una pila de transformaciones
+	void aplicar(Pila< string >& pTransformaciones);
 };
 
 

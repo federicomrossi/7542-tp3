@@ -16,8 +16,8 @@ RInsert::RInsert(int i, string mmm) {
 }
 
 
-// Aplica la regla sobre una cola de transformaciones
-void RInsert::aplicar(Cola< string >& cTransformaciones) {
+// Aplica la regla sobre una pila de transformaciones
+void RInsert::aplicar(Pila< string >& pTransformaciones) {
 	
 	cout << "Se aplico RInsert" << endl;
 }

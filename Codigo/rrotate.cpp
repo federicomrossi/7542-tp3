@@ -15,8 +15,8 @@ RRotate::RRotate(int n) {
 }
 
 
-// Aplica la regla sobre una cola de transformaciones
-void RRotate::aplicar(Cola< string >& cTransformaciones) {
+// Aplica la regla sobre una pila de transformaciones
+void RRotate::aplicar(Pila< string >& pTransformaciones) {
 	
 	cout << "Se aplico RRotate" << endl;
 }
