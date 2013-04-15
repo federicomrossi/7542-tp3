@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
 	// Parseamos argumentos de entrada
 	Receptor *rxPalabras = pEntrada.parsear(argv[2]);
 	Transmisor *tx = pSalida.parsear(argv[3]);
-	Lista< Regla >* lReglas = pReglas.parsear(argv[1], tx);
+	Lista< Regla* > *lReglas = pReglas.parsear(argv[1], tx);
 
 	// Ejecutamos el proceso de alteración de palabras
 	// WordMangling wordMangling(lReglas);

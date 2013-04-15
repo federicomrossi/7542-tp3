@@ -3,9 +3,9 @@
  * Clase COLA
  * ............................................................................
  * Implementación de la clase Cola. Esta puede almacenar cualquier tipo de
- * datos. Además, se almacenan referencias a los datos, quedando en el usuario
- * la responsabilidad de asegurar que estos sean destruidos fuera del alcance
- * de la cola.
+ * datos. Se recomienda almacenar punteros para evitar hacer copias de los
+ * datos, recordando al usuario que corre por su cuenta el asegurar que estos
+ * sean destruidos fuera del alcance de la cola.
  *
  * ****************************************************************************
  * ***************************************************************************/
@@ -28,7 +28,7 @@ class Cola {
 private:
 
 	struct Nodo {
-		Tipo& dato;				// Dato al que referencia el nodo
+		Tipo dato;				// Dato al que referencia el nodo
 		Nodo *siguiente;		// Puntero al siguiente nodo
 
 		// Constructor
@@ -55,18 +55,18 @@ public:
 	// PRE: 'dato' es el dato que se desea encolar.
 	// POST: se agregó el nuevo elemento a la cola, el cual se encuentra
 	// al final de la cola.
-	void encolar(Tipo& dato);
+	void encolar(Tipo dato);
 
 
 	// Saca el primer elemento de la cola.
 	// POST: se retorna el dato que ha sido desencolado. De no haber
 	// elementos en la cola, se lanzará un error de tipo ERROR.
-	Tipo& desencolar();
+	Tipo desencolar();
 
 	// Obtiene el valor del primer elemento de la cola. 
 	// POST: se devuelve el dato que se encuentra primero en la cola. De no
 	// haber elementos en la cola, se lanzará un error de tipo ERROR.
-	Tipo& verPrimero();
+	Tipo verPrimero();
 };
 
 
@@ -120,7 +120,7 @@ bool Cola< Tipo >::estaVacia() {
 // POST: se agregó el nuevo elemento a la cola, el cual se encuentra al final
 // de la cola.
 template <typename Tipo >
-void Cola< Tipo >::encolar(Tipo& dato) {
+void Cola< Tipo >::encolar(Tipo dato) {
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
 
@@ -139,10 +139,10 @@ void Cola< Tipo >::encolar(Tipo& dato) {
 // POST: se retorna el dato que ha sido desencolado. De no haber
 // elementos en la cola, se lanzará un error de tipo ERROR.
 template <typename Tipo >
-Tipo& Cola< Tipo >::desencolar() {
+Tipo Cola< Tipo >::desencolar() {
 	// Tomamos dato del nodo
 	Nodo *nodo = this->primero;
-	Tipo& dato = nodo->dato;
+	Tipo dato = nodo->dato;
 
 	// Desenlazamos nodo y liberamos memoria.
 	if(nodo->siguiente)
@@ -161,7 +161,7 @@ Tipo& Cola< Tipo >::desencolar() {
 // POST: se devuelve el dato que se encuentra primero en la cola. De no
 // haber elementos en la cola, se lanzará un error de tipo ERROR.
 template <typename Tipo >
-Tipo& Cola< Tipo >::verPrimero() {
+Tipo Cola< Tipo >::verPrimero() {
 
 	// AGREGAR EXCEPCION PARA CUANDO NO HAY ELEMENTOS!!!!!
 

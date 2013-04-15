@@ -29,47 +29,55 @@ public:
 };
 
 
-void pruebaCola() {
-	Cola< Entero > cola;
+// void pruebaCola() {
+// 	Cola< Entero* > cola;
 
-	cout << "Creo la cola" << endl;
+// 	cout << "Creo la cola" << endl;
 
-	if(cola.estaVacia()) cout << "Esta vacia" << endl;
-	else cout << "Tiene elementos" << endl;
+// 	if(cola.estaVacia()) cout << "Esta vacia" << endl;
+// 	else cout << "Tiene elementos" << endl;
 
-	Entero e1(1);
-	Entero e2(2);
-	Entero e3(3);
-	Entero e4(4);
-	Entero e5(5);
-	Entero e6(6);
-	Entero e7(7);
+// 	Entero* e1 = new Entero(1);
+// 	Entero* e2 = new Entero(2);
+// 	Entero* e3 = new Entero(3);
+// 	Entero* e4 = new Entero(4);
+// 	Entero* e5 = new Entero(5);
+// 	Entero* e6 = new Entero(6);
+// 	Entero* e7 = new Entero(7);
 
-	cola.encolar(e1);
+// 	cola.encolar(e1);
 
-	if(cola.estaVacia()) cout << "Esta vacia" << endl;
-	else cout << "Tiene elementos" << endl;
+// 	if(cola.estaVacia()) cout << "Esta vacia" << endl;
+// 	else cout << "Tiene elementos" << endl;
 
-	cola.encolar(e2);
-	cola.encolar(e3);
-	cola.encolar(e4);
-	cola.encolar(e5);
-	cola.encolar(e4);
-	cola.encolar(e6);
-	cola.encolar(e7);
+// 	cola.encolar(e2);
+// 	cola.encolar(e3);
+// 	cola.encolar(e4);
+// 	cola.encolar(e5);
+// 	cola.encolar(e4);
+// 	cola.encolar(e6);
+// 	cola.encolar(e7);
 
-	while(!cola.estaVacia()){
-		cout << cola.verPrimero().ver() << endl;
-		cout << cola.desencolar().ver() << endl;
-		if(cola.estaVacia()) cout << "Esta vacia" << endl;
-		else cout << "Tiene elementos" << endl;
-	}
-}
+// 	while(!cola.estaVacia()){
+// 		cout << cola.verPrimero()->ver() << endl;
+// 		cout << cola.desencolar()->ver() << endl;
+// 		if(cola.estaVacia()) cout << "Esta vacia" << endl;
+// 		else cout << "Tiene elementos" << endl;
+// 	}
+
+// 	delete e1;
+// 	delete e2;
+// 	delete e3;
+// 	delete e4;
+// 	delete e5;
+// 	delete e6;
+// 	delete e7;
+// }
 
 
 void pruebaLista() {
 
-	Lista< Entero > lista;
+	Lista< Entero* > lista;
 
 	cout << "Creo la lista" << endl;
 
@@ -78,34 +86,34 @@ void pruebaLista() {
 
 	cout << "tamanio: " << lista.tamanio() << endl;
 
-	Entero e1(1);
-	Entero e2(2);
-	Entero e3(3);
-	Entero e4(4);
-	Entero e5(5);
-	Entero e6(6);
-	Entero e7(7);
+	Entero *e1 = new Entero(1);
+	Entero *e2 = new Entero(2);
+	Entero *e3 = new Entero(3);
+	Entero *e4 = new Entero(4);
+	Entero *e5 = new Entero(5);
+	Entero *e6 = new Entero(6);
+	Entero *e7 = new Entero(7);
 
 	lista.insertarPrimero(e1);
 	cout << "tamanio: " << lista.tamanio() << endl;
-	cout << lista.verPrimero().ver() << endl;
+	cout << lista.verPrimero()->ver() << endl;
 	lista.insertarUltimo(e2);
 	cout << "tamanio: " << lista.tamanio() << endl;
-	cout << lista.verUltimo().ver() << endl;
+	cout << lista.verUltimo()->ver() << endl;
 	lista.insertarPrimero(e3);
 	cout << "tamanio: " << lista.tamanio() << endl;
-	cout << lista.verPrimero().ver() << endl;
-	cout << lista.eliminarPrimero().ver() << endl;
+	cout << lista.verPrimero()->ver() << endl;
+	cout << lista.eliminarPrimero()->ver() << endl;
 	cout << "tamanio: " << lista.tamanio() << endl;
-	cout << lista.verPrimero().ver() << endl;
-	cout << lista.eliminarPrimero().ver() << endl;
+	cout << lista.verPrimero()->ver() << endl;
+	cout << lista.eliminarPrimero()->ver() << endl;
 	cout << "tamanio: " << lista.tamanio() << endl;
-	cout << lista.verPrimero().ver() << endl;
+	cout << lista.verPrimero()->ver() << endl;
 
 	if(lista.estaVacia()) cout << "Esta vacia" << endl;
 	else cout << "Tiene elementos" << endl;
 
-	cout << lista.eliminarPrimero().ver() << endl;
+	cout << lista.eliminarPrimero()->ver() << endl;
 	cout << "tamanio: " << lista.tamanio() << endl;
 
 	if(lista.estaVacia()) cout << "Esta vacia" << endl;
@@ -119,13 +127,21 @@ void pruebaLista() {
 	int i = lista.tamanio();
 
 	for(int j = 0; j < i; j++)
-		cout << lista[j].ver() << endl;
+		cout << lista[j]->ver() << endl;
+
+	delete e1;
+	delete e2;
+	delete e3;
+	delete e4;
+	delete e5;
+	delete e6;
+	delete e7;
 }
 
 
 int main(int argc, char* argv[]) {
 
-	//pruebaCola();
+	// pruebaCola();
 	pruebaLista();
 
 	return 0;

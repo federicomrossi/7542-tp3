@@ -3,9 +3,9 @@
  * Clase LISTA
  * ............................................................................
  * Implementación de la clase Lista. Esta puede almacenar cualquier tipo de
- * datos. Además, se almacenan referencias a los datos, quedando en el usuario
- * la responsabilidad de asegurar que estos sean destruidos fuera del alcance
- * de la lista.
+ * datos. Se recomienda almacenar punteros para evitar hacer copias de los
+ * datos, recordando al usuario que corre por su cuenta el asegurar que estos
+ * sean destruidos fuera del alcance de la lista.
  *
  * ****************************************************************************
  * ***************************************************************************/
@@ -27,11 +27,11 @@ class Lista {
 private:
 
 	struct Nodo {
-		Tipo& dato;				// Dato al que referencia el nodo
+		Tipo dato;				// Dato al que referencia el nodo
 		Nodo *siguiente;		// Puntero al siguiente nodo
 
 		// Constructor
-		Nodo(Tipo& dato) : dato(dato), siguiente(0) { }
+		Nodo(Tipo dato) : dato(dato), siguiente(0) { }
 	};
 
 	Nodo *primero;				// Puntero al primer elemento de la lista
@@ -57,32 +57,32 @@ public:
 
 	// Inserta un elemento al principio de la lista.
 	// PRE: 'dato' es el dato a insertar.
-	void insertarPrimero(Tipo& dato);
+	void insertarPrimero(Tipo dato);
 
 	// Inserta un elemento en el último lugar de la lista.
 	// PRE: 'dato' es el dato a insertar.
-	void insertarUltimo(Tipo& dato);
+	void insertarUltimo(Tipo dato);
 
 	// Obtiene el valor del primer elemento de la lista. 
 	// POST: se devuelve el dato que se encuentra primero en la lista. De no
 	// haber elementos en la lista, se lanzará un error de tipo ERROR.
-	Tipo& verPrimero();
+	Tipo verPrimero();
 
 	// Obtiene el valor del último elemento de la lista. 
 	// POST: se devuelve el dato que se encuentra último en la lista. De no
 	// haber elementos en la lista, se lanzará un error de tipo ERROR.
-	Tipo& verUltimo();
+	Tipo verUltimo();
 
 	// Elimina el primer elemento de la lista. 
 	// POST: se retorna el elemento eliminado de la lista. De no
 	// haber elementos en la lista, se lanzará un error de tipo ERROR.
-	Tipo& eliminarPrimero();
+	Tipo eliminarPrimero();
 
 	// Operador []
 	// Permite acceder a los índices de la lista mediante la notación 
 	// lista[i], donde i es un número entero comprendido entre [0, n-1],
 	// siendo n el tamaño de la lista.
-	Tipo& operator [] (const int indice);
+	Tipo operator [] (const int indice);
 };
 
 
@@ -135,7 +135,7 @@ int Lista< Tipo >::tamanio() {
 // Inserta un elemento al principio de la lista.
 // PRE: 'dato' es el dato a insertar.
 template <typename Tipo >
-void Lista< Tipo >::insertarPrimero(Tipo& dato) {
+void Lista< Tipo >::insertarPrimero(Tipo dato) {
 
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
@@ -154,7 +154,7 @@ void Lista< Tipo >::insertarPrimero(Tipo& dato) {
 // Inserta un elemento en el último lugar de la lista.
 // PRE: 'dato' es el dato a insertar.
 template <typename Tipo >
-void Lista< Tipo >::insertarUltimo(Tipo& dato) {
+void Lista< Tipo >::insertarUltimo(Tipo dato) {
 
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
@@ -180,7 +180,7 @@ void Lista< Tipo >::insertarUltimo(Tipo& dato) {
 // POST: se devuelve el dato que se encuentra primero en la lista. De no
 // haber elementos en la lista, se lanzará un error de tipo ERROR.
 template <typename Tipo >
-Tipo& Lista< Tipo >::verPrimero() {
+Tipo Lista< Tipo >::verPrimero() {
 
 	// AGREGAR EXCEPCION PARA CUANDO NO HAY ELEMENTOS!!!!!
 
@@ -192,7 +192,7 @@ Tipo& Lista< Tipo >::verPrimero() {
 // POST: se devuelve el dato que se encuentra último en la lista. De no
 // haber elementos en la lista, se lanzará un error de tipo ERROR.
 template <typename Tipo >
-Tipo& Lista< Tipo >::verUltimo() {
+Tipo Lista< Tipo >::verUltimo() {
 
 	// AGREGAR EXCEPCION PARA CUANDO NO HAY ELEMENTOS!!!!!
 
@@ -204,13 +204,13 @@ Tipo& Lista< Tipo >::verUltimo() {
 // POST: se retorna el elemento eliminado de la lista. De no
 // haber elementos en la lista, se lanzará un error de tipo ERROR.
 template <typename Tipo >
-Tipo& Lista< Tipo >::eliminarPrimero() {
+Tipo Lista< Tipo >::eliminarPrimero() {
 
 	// AGREGAR EXCEPCION PARA CUANDO NO HAY ELEMENTOS!!!!!
 
 	// Tomamos el nodo a borrar
 	Nodo *nodo = this->primero;
-	Tipo& dato = this->primero->dato;
+	Tipo dato = this->primero->dato;
 
 	// El segundo elemento pasa a ser el primero
 	this->primero = this->primero->siguiente;
@@ -231,7 +231,7 @@ Tipo& Lista< Tipo >::eliminarPrimero() {
 // donde i es un número entero comprendido entre [0, n-1], siendo n el tamaño
 // de la lista.
 template <typename Tipo >
-Tipo& Lista< Tipo >::operator [] (const int indice) {
+Tipo Lista< Tipo >::operator [] (const int indice) {
 
 	// AGREGAR ENVIO DE EXCEPCION PARA CUANDO SE EXCEDE EL INDICE
 	// if (indice >= this->largo) throw ERROR

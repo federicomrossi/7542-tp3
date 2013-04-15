@@ -23,7 +23,7 @@ public:
 	// para emitir palabras.
 	// POST: se devuelve una referencia a una lista que contiene, en orden
 	// de aparición en el archivo, los objetos que son Regla.
-	Lista< Regla >* parsear(string archivo, Transmisor* tx);
+	Lista< Regla* >* parsear(const string& nombre_archivo, Transmisor* tx);
 
 };
 
