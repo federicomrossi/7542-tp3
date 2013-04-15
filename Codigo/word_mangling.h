@@ -10,9 +10,9 @@
 
 
 #include "lista.h"
-#include "cola.h"
 #include "regla.h"
 #include "receptor.h"
+
 
 
 class WordMangling {

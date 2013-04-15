@@ -6,6 +6,8 @@
 
 
 #include "word_mangling.h"
+#include "cola.h"
+
 
 
 // Constructor:
@@ -16,7 +18,7 @@ WordMangling::WordMangling(Lista< Regla >& lReglas) : lReglas(lReglas) { }
 // Ejecuta el alterador de palabras.
 // PRE: 'rxPalabras' es un Receptor de palabras sobre las que se
 // aplicarán las reglas.
-void WordMangling::ejecutar(Receptor& rxPalabras) {}
+void WordMangling::ejecutar(Receptor& rxPalabras) {
 
 	// string palabra;
 

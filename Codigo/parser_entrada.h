@@ -8,12 +8,14 @@
 #ifndef PARSER_ENTRADA_H
 #define PARSER_ENTRADA_H
 
-
+#include <iostream>
 #include "receptor.h"
 
+using namespace std;
 
 
 class ParserEntrada {
+
 
 public:
 
@@ -23,7 +25,7 @@ public:
 	// palabras iniciales o el caracter "-" si se desea recibir las palabras 
 	// a través de la entrada estándar.
 	// POST: se devuelve una referencia a un Receptor.
-	Receptor& parsear(string& tipoEntrada);
+	Receptor* parsear(const string& tipoEntrada);
 };
 
 

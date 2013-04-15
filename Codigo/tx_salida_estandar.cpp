@@ -1,19 +1,19 @@
 /* ****************************************************************************
  * ****************************************************************************
- * Clase RXARCHIVO
+ * Clase TXSALIDAESTANDAR
  * ****************************************************************************
  * ***************************************************************************/
 
 
-#include "rxarchivo.h"
+#include "tx_salida_estandar.h"
 
 
 
 // Constructor
-RxArchivo::RxArchivo() { }
+TxSalidaEstandar::TxSalidaEstandar() { }
 
 
-// Se ejecuta la recepción de un dato desde un archivo.
-void RxArchivo::recibir() {
+// Se ejecuta la transmisión de un dato hacia la salida estándar.
+void TxSalidaEstandar::transmitir() {
 	
 }

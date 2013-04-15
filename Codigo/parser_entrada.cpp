@@ -5,8 +5,10 @@
  * ***************************************************************************/
 
 
-#include "parsear_entrada.h"
-
+#include <iostream>
+#include "parser_entrada.h"
+#include "rx_archivo.h"
+#include "rx_entrada_estandar.h"
 
 
 // Parsea la especificación de qué tipo de entrada se utilizará.
@@ -15,7 +17,10 @@
 // palabras iniciales o el caracter "-" si se desea recibir las palabras 
 // a través de la entrada estándar.
 // POST: se devuelve una referencia a un Receptor.
-Receptor& ParserEntrada::parsear(string& tipoEntrada) {
-	
-	return 0;
+Receptor* ParserEntrada::parsear(const string& tipoEntrada) {
+
+	if(tipoEntrada == "-")
+		return new RxEntradaEstandar();		
+
+	return new RxArchivo(tipoEntrada);
 }

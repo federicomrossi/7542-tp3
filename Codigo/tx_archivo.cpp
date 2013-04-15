@@ -1,28 +1,19 @@
 /* ****************************************************************************
  * ****************************************************************************
- * Clase RXARCHIVO
+ * Clase TXARCHIVO
  * ****************************************************************************
  * ***************************************************************************/
 
 
-#ifndef RX_ARCHIVO_H
-#define RX_ARCHIVO_H
-
-
-#include "receptor.h"
+#include "tx_archivo.h"
 
 
 
-class RxArchivo:public Receptor {
-
-public:
-
-	// Constructor
-	RxArchivo();
-
-	// Se ejecuta la recepción de un dato desde un archivo.
-	virtual void recibir();
-};
+// Constructor
+TxArchivo::TxArchivo() { }
 
 
-#endif
+// Se ejecuta la transmisión de un dato hacia un archivo.
+void TxArchivo::transmitir() {
+	
+}
