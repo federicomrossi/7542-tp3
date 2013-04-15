@@ -1,6 +1,14 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase RINSERT
+ * ............................................................................
+ * La regla agrega el string 'mmm' en la posición 'i' de una palabra.
+ * Si 'i' es positivo, se insertará el substring antes del caracter en la
+ * posición 'i'. Si es negativo, se insertará después del caracter en la
+ * posición 'i'.
+ * Si 'i' es positivo y excede las posiciones válidas de la palabra, se
+ * insertará al final, mientras que, si es negativo, se insertará al 
+ * principio.
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -26,7 +34,7 @@ public:
 	RInsert(int i, string mmm);
 
 	// Aplica la regla sobre una pila de transformaciones
-	void aplicar(Pila< string >& pTransformaciones);
+	virtual void aplicar(Pila< string >& pTransformaciones);
 };
 
 

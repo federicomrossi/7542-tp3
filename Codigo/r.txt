@@ -1,3 +1,2 @@
-lowercase 2 5 ;
-uppercase 3 3 ;
+uppercase -8 -5 ;
 print ;

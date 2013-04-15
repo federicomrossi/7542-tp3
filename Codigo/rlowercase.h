@@ -29,19 +29,7 @@ public:
 	RLowercase(int n, int m);
 
 	// Aplica la regla sobre una pila de transformaciones
-	void aplicar(Pila< string >& pTransformaciones);
-
-private:
-
-	// Convierte una posición de entrada en una posición válida de un string
-	// PRE: 'sTamanio' es el tamaño del string al que se refiere; 'pos' es la
-	// posición del string.
-	// POST: si 'pos' es negativa, se convierte en una posición válida
-	// positiva, considerando que en caso de desborde se devolverá la primer
-	// posición del string; si 'pos' es positiva y supera el tamaño del string,
-	// se devuelve la última posición de este.
-	int _convertirEnPosicionValida(int sTamanio, int pos);
-
+	virtual void aplicar(Pila< string >& pTransformaciones);
 };
 
 

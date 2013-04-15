@@ -25,7 +25,7 @@ public:
 	RRevert(int i);
 
 	// Aplica la regla sobre una pila de transformaciones
-	void aplicar(Pila< string >& pTransformaciones);
+	virtual void aplicar(Pila< string >& pTransformaciones);
 };
 
 

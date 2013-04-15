@@ -27,7 +27,7 @@ public:
 
 	// Aplica la regla sobre una pila de transformaciones. La regla emite la
 	// última modificación realizada.
-	void aplicar(Pila< string >& pTransformaciones);
+	virtual void aplicar(Pila< string >& pTransformaciones);
 };
 
 
