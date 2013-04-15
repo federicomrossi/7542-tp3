@@ -16,8 +16,6 @@
 #include "rrevert.h"
 #include "rprint.h"
 
-#include <fstream>
-
 
 // Constantes para los nombres de instrucciones
 const string S_UPPERCASE = "uppercase";
@@ -45,11 +43,9 @@ const string S_FIN_INSTRUCCION = ";";
 // para emitir palabras.
 // POST: se devuelve una referencia a una lista que contiene, en orden
 // de aparición en el archivo, los objetos que son Regla.
-Lista< Regla* >* ParserReglas::parsear(const string& nombre_archivo, Transmisor* tx) {
+Lista< Regla* > ParserReglas::parsear(const string& nombre_archivo, 
+	Transmisor *tx) {
 	
-	// Creamos la lista de reglas
-	Lista< Regla* > *lReglas = new Lista< Regla* >();
-
 	// Abrimos archivo
 	ifstream archivo;
 	archivo.open(nombre_archivo.c_str());
@@ -60,25 +56,53 @@ Lista< Regla* >* ParserReglas::parsear(const string& nombre_archivo, Transmisor*
 		cout << "El archivo no se abrio" << endl;
 
 
-	string instruccion;
+	// Creamos la lista de reglas
+	Lista< Regla* > lReglas;
 
-	while(archivo.good())
+	// Variables auxiliares para parseo
+	string instruccion, mmm, fin;
+	int n, m, r, i;
+
+	// Procesamos cada instrucción. Si alguna no esta definida, no se 
+	// considera y se sigue procesando las restantes.
+	while(archivo >> instruccion)
 	{
-		archivo >> instruccion;
-		// if(instruccion == S_FIN_INSTRUCCION) break;
-		cout << instruccion << endl;
-
-		// if(instruccion == S_UPPERCASE)
-		// {
-		// 	RUpercase *r = new RUpercase()
-		// 	lReglas.insertarUltimo()
-		// }
-
-		while(instruccion != S_FIN_INSTRUCCION)
-		{
-
-			archivo >> instruccion;
+		// Filtros
+		if(instruccion == S_UPPERCASE) {
+			archivo >> n >> m >> fin;
+			lReglas.insertarUltimo(new RUppercase(n, m));
+			continue;	
 		}
+		else if(instruccion == S_LOWERCASE)	{
+			archivo >> n >> m >> fin;
+			lReglas.insertarUltimo(new RLowercase(n, m));
+			continue;
+		}
+		else if(instruccion == S_REPEAT) {
+			archivo >> n >> m >> r >> i >> fin;
+			lReglas.insertarUltimo(new RRepeat(n, m, r, i));
+			continue;
+		}
+		else if(instruccion == S_ROTATE) {
+			archivo >> n >> fin;
+			lReglas.insertarUltimo(new RRotate(n));
+			continue;
+		}
+		else if(instruccion == S_INSERT) {
+			archivo >> i >> mmm >> fin;
+			lReglas.insertarUltimo(new RInsert(i, mmm));
+			continue;
+		}
+		else if(instruccion == S_REVERT) {
+			archivo >> i >> fin;
+			lReglas.insertarUltimo(new RRevert(i));
+			continue;
+		}
+		else if(instruccion == S_PRINT)	{
+			archivo >> fin;
+			lReglas.insertarUltimo(new RPrint(tx));
+			continue;
+		}			
 	}
 
 	// Cerramos el archivo

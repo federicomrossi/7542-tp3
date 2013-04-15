@@ -10,7 +10,7 @@
 
 
 // Constructor
-RPrint::RPrint(Transmisor& tx) : tx(tx) { }
+RPrint::RPrint(Transmisor *tx) : tx(tx) { }
 
 
 // Aplica la regla sobre una cola de transformaciones

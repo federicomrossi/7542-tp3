@@ -10,24 +10,31 @@
 
 
 
+
 // Constructor:
 // 'lReglas' es una Lista de Reglas que se desean aplicar
-WordMangling::WordMangling(Lista< Regla >& lReglas) : lReglas(lReglas) { }
+WordMangling::WordMangling(Lista< Regla* >& lReglas) : lReglas(lReglas) { }
 
 
 // Ejecuta el alterador de palabras.
 // PRE: 'rxPalabras' es un Receptor de palabras sobre las que se
 // aplicarán las reglas.
-void WordMangling::ejecutar(Receptor& rxPalabras) {
+void WordMangling::ejecutar(Receptor *rxPalabras) {
 
-	// string palabra;
+	// Aplicamos reglas a cada palabra entrante recibida
+	string palabra = rxPalabras->recibir();
 
-	// while(palabra = rxPalabras.recibir())
-	// {
-	// 	Cola< string > cTransformaciones;
-	// 	cTransformaciones.encolar(palabra);
+	while(!palabra.empty())
+	{
+		// Creamos la cola de transformaciones
+		Cola< string > cTransformaciones;
+		// Encolamos la palabra original
+		cTransformaciones.encolar(palabra);
 
-	// 	for(int i=0; i < this->lReglas.tamanio(); i++)
-	// 		this->lReglas[i].aplicar(cTransformaciones);
-	// }
+		// Aplicamos reglas a palabra
+		for(int i=0; i < this->lReglas.tamanio(); i++)
+			this->lReglas[i]->aplicar(cTransformaciones);
+
+		palabra = rxPalabras->recibir();
+	}
 }

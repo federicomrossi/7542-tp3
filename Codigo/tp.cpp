@@ -22,11 +22,11 @@
  */
 
 
-
 #include "parser_entrada.h"
 #include "parser_salida.h"
 #include "parser_reglas.h"
-// #include "word_mangling.h"
+#include "word_mangling.h"
+
 
 
 
@@ -45,26 +45,14 @@ int main(int argc, char* argv[]) {
 	// Parseamos argumentos de entrada
 	Receptor *rxPalabras = pEntrada.parsear(argv[2]);
 	Transmisor *tx = pSalida.parsear(argv[3]);
-	Lista< Regla* > *lReglas = pReglas.parsear(argv[1], tx);
+	Lista< Regla* > lReglas = pReglas.parsear(argv[1], tx);
 
 	// Ejecutamos el proceso de alteración de palabras
-	// WordMangling wordMangling(lReglas);
-	// wordMangling.ejecutar(rxPalabras);
-
-	
-	// TEMP: RECEPCION DE PALABRAS
-	// string x;
-	// x = rxPalabras->recibir();
-
-	// while(!x.empty())
-	// {
-	// 	tx->transmitir(x);
-	// 	x = rxPalabras->recibir();
-	// }
+	WordMangling wordMangling(lReglas);
+	wordMangling.ejecutar(rxPalabras);
 
 	delete rxPalabras;
 	delete tx;
-	delete lReglas;
 
 	return 0;
 }

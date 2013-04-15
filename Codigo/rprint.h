@@ -18,12 +18,12 @@ class RPrint:public Regla {
 
 private:
 
-	Transmisor& tx;			// Transmisor del dato
+	Transmisor *tx;			// Transmisor del dato
 
 public:
 
 	// Constructor
-	RPrint(Transmisor& tx);
+	RPrint(Transmisor *tx);
 
 	// Aplica la regla sobre una cola de transformaciones
 	void aplicar(Cola< string >& cTransformaciones);
