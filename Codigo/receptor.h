@@ -17,7 +17,7 @@ class Receptor {
 public:
 
 	// Destructor
-	virtual ~Receptor() {};
+	virtual ~Receptor() { };
 
 	// Se ejecuta la recepción de un dato desde la entrada estándar.
 	// POST: se devuelve la palabra recibida. Debe considerarse terminada la

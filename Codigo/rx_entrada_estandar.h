@@ -12,6 +12,7 @@
 #include "receptor.h"
 
 
+
 class RxEntradaEstandar:public Receptor {
 
 public:

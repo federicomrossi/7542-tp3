@@ -10,10 +10,8 @@
 
 
 #include "receptor.h"
-
-#include <iostream>
 #include <fstream>
-using namespace std;
+
 
 
 class RxArchivo:public Receptor {

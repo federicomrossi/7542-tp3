@@ -5,7 +5,6 @@
  * ***************************************************************************/
 
 
-#include <iostream>
 #include "parser_entrada.h"
 #include "rx_archivo.h"
 #include "rx_entrada_estandar.h"

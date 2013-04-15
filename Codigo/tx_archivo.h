@@ -10,18 +10,28 @@
 
 
 #include "transmisor.h"
+#include <fstream>
 
 
 
 class TxArchivo:public Transmisor {
 
+private:
+
+	ofstream archivo;		// Archivo en donde se escriben las palabras
+							// alteradas
+
 public:
 
 	// Constructor
-	TxArchivo();
+	TxArchivo(const string& nombre_archivo);
 
-	// Se ejecuta la transmisión de un dato hacia un archivo.
-	void transmitir();
+	// Destructor
+	~TxArchivo();
+
+	// Se ejecuta la transmisión de un dato hacia un archivo. Se almacena
+	// una palabra por línea.
+	void transmitir(const string& palabra);
 };
 
 
