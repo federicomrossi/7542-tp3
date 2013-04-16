@@ -35,7 +35,7 @@ void RUppercase::aplicar(Pila< string >& pTransformaciones) {
 
 	// Transformamos en mayúscula las letras del conjunto
 	for(int i = nn; i <= mm; i++)
-		s[i] = s[i] - 'a' + 'A';
+		s[i] = toupper(s[i]);
 
 	// Apilamos la transformación
 	pTransformaciones.apilar(s);

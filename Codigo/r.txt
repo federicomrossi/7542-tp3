@@ -1,2 +1,4 @@
-rotate 3 ;
+insert -1 e ;
+print ;
+insert -1 mos ;
 print ;

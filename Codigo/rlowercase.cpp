@@ -35,7 +35,7 @@ void RLowercase::aplicar(Pila< string >& pTransformaciones) {
 	
 	// Transformamos en minúscula las letras del conjunto
 	for(int i = nn; i <= mm; i++)
-		s[i] = s[i] - 'A' + 'a';
+		s[i] = tolower(s[i]);
 
 	// Apilamos la transformación
 	pTransformaciones.apilar(s);

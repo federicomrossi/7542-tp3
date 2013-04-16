@@ -38,10 +38,8 @@ int Regla::convertirEnPosicionValida(int sTamanio, int pos) {
 // false en su defecto.
 bool Regla::estaFueraDeRango(int sTamanio, int n, int m) {
 
-	// Caso en que los extremos son inconsistentes
-	if(n > m) return true;
 	// Caso en que ambos son negativos y están fuera de rango
-	else if((n<0) && (m<0) && ((n+sTamanio) <0) && ((m+sTamanio) <0)) return true;
+	if((n<0) && (m<0) && ((n+sTamanio) <0) && ((m+sTamanio) <0)) return true;
 	// Caso en que ambos son positivos y están fuera de rango
 	else if((n>0) && (m>0) && (n> sTamanio-1) && (m> sTamanio-1)) return true;
 
