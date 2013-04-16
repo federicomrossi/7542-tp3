@@ -1,5 +1,0 @@
-regla.o regla.deps : regla.cpp regla.h pila.h
-
-regla.h:
-
-pila.h:

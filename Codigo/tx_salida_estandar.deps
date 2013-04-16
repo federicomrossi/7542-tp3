@@ -1,6 +1,0 @@
-tx_salida_estandar.o tx_salida_estandar.deps : tx_salida_estandar.cpp tx_salida_estandar.h \
- transmisor.h
-
-tx_salida_estandar.h:
-
-transmisor.h:

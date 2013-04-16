@@ -1,7 +1,0 @@
-rrepeat.o rrepeat.deps : rrepeat.cpp rrepeat.h regla.h pila.h
-
-rrepeat.h:
-
-regla.h:
-
-pila.h:
