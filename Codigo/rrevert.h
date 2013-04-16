@@ -2,7 +2,8 @@
  * ****************************************************************************
  * Clase RREVERT
  * ............................................................................
- * La revierte los efectos de las modificaciones de las últimas i reglas.
+ * La regla revierte los efectos de las modificaciones de las últimas i reglas.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -16,7 +17,6 @@
 
 
 class RRevert:public Regla {
-
 private:
 
 	int i;			// Cantidad de modificaciones de reglas a revertir
@@ -24,13 +24,13 @@ private:
 public:
 
 	// Constructor
-	RRevert(int i);
+	explicit RRevert(int i);
 
 	// Destructor
 	~RRevert();
 
 	// Aplica la regla sobre una pila de transformaciones
-	virtual void aplicar(Pila< string >& pTransformaciones);
+	virtual void aplicar(Pila< std::string >& pTransformaciones);
 };
 
 

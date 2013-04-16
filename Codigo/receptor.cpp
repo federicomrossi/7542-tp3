@@ -21,7 +21,7 @@ void Receptor::activar() {
 }
 
 
-// Activa el receptor
+// Desactiva el receptor
 void Receptor::desactivar() {
 	this->activo = false;
 }

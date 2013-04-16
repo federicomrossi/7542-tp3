@@ -1,6 +1,10 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase WORDMANGLING
+ * ............................................................................
+ * Modela el módulo encargado de llevar a cabo el word mangling a partir de una
+ * lista de reglas sobre palabras recibidas a través de un receptor.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -16,15 +20,13 @@
 
 
 class WordMangling {
-
 private:
-
 	Lista< Regla >& lReglas;		// Lista de reglas a aplicar
 
 public:
 
 	// Constructor
-	WordMangling(Lista< Regla >& lReglas);
+	explicit WordMangling(Lista< Regla >& lReglas);
 
 	// Ejecuta el alterador de palabras.
 	// PRE: 'rxPalabras' es un Receptor de palabras sobre las que se

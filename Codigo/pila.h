@@ -2,11 +2,7 @@
  * ****************************************************************************
  * Clase PILA
  * ............................................................................
- * Implementación de la clase Pila. Esta puede almacenar cualquier tipo de
- * datos. Se recomienda almacenar punteros para evitar hacer copias de los
- * datos, recordando al usuario que corre por su cuenta el asegurar que estos
- * sean destruidos fuera del alcance de la pila.
- *
+ * Implementación de la clase Pila.
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -24,7 +20,6 @@
 
 template < typename Tipo > 
 class Pila {
-
 private:
 
 	struct Nodo {
@@ -32,7 +27,7 @@ private:
 		Nodo *siguiente;		// Puntero al siguiente nodo
 
 		// Constructor
-		Nodo(Tipo& dato) : dato(dato), siguiente(0) { }
+		explicit Nodo(Tipo& dato) : dato(dato), siguiente(0) { }
 	};
 
 	int cantElementos;			// Número de elementos en la pila
@@ -59,13 +54,11 @@ public:
 
 
 	// Saca el primer elemento de la pila.
-	// POST: se retorna el dato que ha sido desapilado. De no haber
-	// elementos en la pila, se lanzará un error de tipo ERROR.
+	// POST: se retorna el dato que ha sido desapilado.
 	Tipo desapilar();
 
 	// Obtiene el valor del primer elemento de la pila. 
-	// POST: se devuelve el dato que se encuentra en el tope de la pila. De no
-	// haber elementos en la pila, se lanzará un error de tipo ERROR.
+	// POST: se devuelve el dato que se encuentra en el tope de la pila
 	Tipo verTope();
 };
 
@@ -136,8 +129,7 @@ void Pila< Tipo >::apilar(Tipo dato) {
 
 
 // Saca el primer elemento de la pila.
-// POST: se retorna el dato que ha sido desapilado. De no haber
-// elementos en la pila, se lanzará un error de tipo ERROR.
+// POST: se retorna el dato que ha sido desapilado.
 template <typename Tipo >
 Tipo Pila< Tipo >::desapilar() {
 	// Tomamos dato del nodo
@@ -158,13 +150,9 @@ Tipo Pila< Tipo >::desapilar() {
 
 
 // Obtiene el valor del primer elemento de la pila. 
-// POST: se devuelve el dato que se encuentra en el tope de la pila. De no
-// haber elementos en la pila, se lanzará un error de tipo ERROR.
+// POST: se devuelve el dato que se encuentra en el tope de la pila.
 template <typename Tipo >
 Tipo Pila< Tipo >::verTope() {
-
-	// AGREGAR EXCEPCION PARA CUANDO NO HAY ELEMENTOS!!!!!
-
 	return (this->primero->dato);
 }
 

@@ -4,6 +4,7 @@
  * ............................................................................
  * La regla transforma los caracteres que están en la posición 'n' hasta la 
  * posición 'm' (inclusive) a mayúsculas.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -17,7 +18,6 @@
 
 
 class RUppercase:public Regla {
-
 private:
 
 	int n;		// Posición inicial de transformación
@@ -32,8 +32,7 @@ public:
 	~RUppercase();
 
 	// Aplica la regla sobre una pila de transformaciones.
-	virtual void aplicar(Pila< string >& pTransformaciones);
-
+	virtual void aplicar(Pila< std::string >& pTransformaciones);
 };
 
 #endif

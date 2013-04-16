@@ -1,6 +1,11 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase TXARCHIVO
+ * ............................................................................
+ * Transmisor que transmite los datos hacia un archivo de salida. El archivo de
+ * salida se crea si no existe, y de existir, no se trunca, sino que se siguen
+ * escribiendo las transmisiones al final del archivo.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -10,8 +15,8 @@
 
 
 // Constructor
-TxArchivo::TxArchivo(const string& nombre_archivo) {
-	this->archivo.open(nombre_archivo.c_str(), ios::app);
+TxArchivo::TxArchivo(const std::string& nombre_archivo) {
+	this->archivo.open(nombre_archivo.c_str(), std::ios::app);
 	
 	// Verificamos que se halla abierto correctamente
 	if(this->archivo.is_open()) activar();
@@ -26,6 +31,6 @@ TxArchivo::~TxArchivo() {
 
 
 // Se ejecuta la transmisión de un dato hacia un archivo.
-void TxArchivo::transmitir(const string& palabra) {
-	this->archivo << palabra << endl;
+void TxArchivo::transmitir(const std::string& palabra) {
+	this->archivo << palabra << std::endl;
 }

@@ -1,6 +1,9 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase TXSALIDAESTANDAR
+ * ............................................................................
+ * Transmisor que emite resultados hacia la salida estándar.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -9,20 +12,19 @@
 #define TX_SALIDA_ESTANDAR_H
 
 
+#include <string>
 #include "transmisor.h"
 
 
 
 class TxSalidaEstandar:public Transmisor {
-
 public:
 
 	// Constructor
 	TxSalidaEstandar();
 
 	// Se ejecuta la transmisión de un dato hacia la salida estándar.
-	virtual void transmitir(const string& palabra);
+	virtual void transmitir(const std::string& palabra);
 };
-
 
 #endif

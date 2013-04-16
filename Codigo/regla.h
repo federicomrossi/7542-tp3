@@ -8,23 +8,20 @@
 #ifndef REGLA_H
 #define REGLA_H
 
-
+#include <string>
 #include <iostream>
 #include "pila.h"
-
-using namespace std;
 
 
 
 class Regla {
-
 public:
 
 	// Destructor
 	virtual ~Regla();
 
 	// Aplica la regla sobre una pila de transformaciones.
-	virtual void aplicar(Pila< string >& pTransformaciones) = 0;
+	virtual void aplicar(Pila< std::string >& pTransformaciones) = 0;
 
 
 protected:
@@ -53,7 +50,6 @@ protected:
 	// POST: devuelve true si la posición es una posición dentro de la cadena o
 	// false en su defecto.
 	bool estaFueraDeRango(int sTamanio, int i);
-
 };
 
 #endif

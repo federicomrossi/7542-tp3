@@ -20,13 +20,12 @@ Regla::~Regla() { }
 // posición del string; si 'pos' es positiva y supera el tamaño del string,
 // se devuelve la última posición de este.
 int Regla::convertirEnPosicionValida(int sTamanio, int pos) {
-
 	if(pos < 0) {
 		int posValida = sTamanio + pos;
 		if(posValida < 0) return 0;
 		return posValida;
 	}
-	else if(pos > sTamanio - 1) return (sTamanio - 1);
+	else if (pos > sTamanio - 1) return (sTamanio - 1);
 
 	return pos;
 }
@@ -40,11 +39,12 @@ int Regla::convertirEnPosicionValida(int sTamanio, int pos) {
 // POST: devuelve true si el intervalo se encuentra dentro del rango o
 // false en su defecto.
 bool Regla::estaFueraDeRango(int sTamanio, int n, int m) {
-
 	// Caso en que ambos son negativos y están fuera de rango
-	if((n<0) && (m<0) && ((n+sTamanio) <0) && ((m+sTamanio) <0)) return true;
+	if((n < 0) && (m < 0) && ((n+sTamanio) < 0) && ((m+sTamanio) < 0)) 
+		return true;
 	// Caso en que ambos son positivos y están fuera de rango
-	else if((n>0) && (m>0) && (n> sTamanio-1) && (m> sTamanio-1)) return true;
+	else if ((n > 0) && (m > 0) && (n > sTamanio-1) && (m > sTamanio-1)) 
+		return true;
 
 	return false;
 }
@@ -56,11 +56,10 @@ bool Regla::estaFueraDeRango(int sTamanio, int n, int m) {
 // POST: devuelve true si la posición es una posición dentro de la cadena o
 // false en su defecto.
 bool Regla::estaFueraDeRango(int sTamanio, int i) {
-
 	// Caso en que es negativo y está fuera de rango
-	if((i<0) && ((i+sTamanio) <0)) return true;
+	if((i < 0) && ((i+sTamanio) < 0)) return true;
 	// Caso en que es positivo y está fuera de rango
-	else if((i>0) && (i> sTamanio-1)) return true;
+	else if ((i > 0) && (i > sTamanio-1)) return true;
 
 	return false;
 }

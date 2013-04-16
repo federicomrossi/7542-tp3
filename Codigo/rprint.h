@@ -1,6 +1,9 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase RPRINT
+ * ............................................................................
+ * La regla transmite el resultado de la transformación mas reciente.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -15,7 +18,6 @@
 
 
 class RPrint:public Regla {
-
 private:
 
 	Transmisor *tx;			// Transmisor del dato
@@ -23,14 +25,14 @@ private:
 public:
 
 	// Constructor
-	RPrint(Transmisor *tx);
+	explicit RPrint(Transmisor *tx);
 
 	// Destructor
 	~RPrint();
 
 	// Aplica la regla sobre una pila de transformaciones. La regla emite la
 	// última modificación realizada.
-	virtual void aplicar(Pila< string >& pTransformaciones);
+	virtual void aplicar(Pila< std::string >& pTransformaciones);
 };
 
 

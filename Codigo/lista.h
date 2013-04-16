@@ -2,10 +2,7 @@
  * ****************************************************************************
  * Clase LISTA
  * ............................................................................
- * Implementación de la clase Lista. Esta puede almacenar cualquier tipo de
- * datos. Se recomienda almacenar punteros para evitar hacer copias de los
- * datos, recordando al usuario que corre por su cuenta el asegurar que estos
- * sean destruidos fuera del alcance de la lista.
+ * Implementación de la clase Lista.
  *
  * ****************************************************************************
  * ***************************************************************************/
@@ -23,7 +20,6 @@
 
 template < typename Tipo > 
 class Lista {
-
 private:
 
 	struct Nodo {
@@ -31,7 +27,7 @@ private:
 		Nodo *siguiente;		// Puntero al siguiente nodo
 
 		// Constructor
-		Nodo(Tipo *dato) : dato(dato), siguiente(0) { }
+		explicit Nodo(Tipo *dato) : dato(dato), siguiente(0) { }
 	};
 
 	Nodo *primero;				// Puntero al primer elemento de la lista
@@ -79,7 +75,7 @@ public:
 	// Permite acceder a los índices de la lista mediante la notación 
 	// lista[i], donde i es un número entero comprendido entre [0, n-1],
 	// siendo n el tamaño de la lista.
-	Tipo* operator [] (const int indice);
+	Tipo* operator[] (const int indice);
 };
 
 
@@ -134,7 +130,6 @@ int Lista< Tipo >::tamanio() {
 // PRE: 'dato' es el dato a insertar.
 template <typename Tipo >
 void Lista< Tipo >::insertarPrimero(Tipo *dato) {
-
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
 
@@ -153,7 +148,6 @@ void Lista< Tipo >::insertarPrimero(Tipo *dato) {
 // PRE: 'dato' es el dato a insertar.
 template <typename Tipo >
 void Lista< Tipo >::insertarUltimo(Tipo *dato) {
-
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
 
@@ -194,7 +188,6 @@ Tipo* Lista< Tipo >::verUltimo() {
 // POST: se retorna el elemento eliminado de la lista.
 template <typename Tipo >
 Tipo* Lista< Tipo >::eliminarPrimero() {
-
 	// Tomamos el nodo a borrar
 	Nodo *nodo = this->primero;
 	Tipo *dato = this->primero->dato;
@@ -218,8 +211,7 @@ Tipo* Lista< Tipo >::eliminarPrimero() {
 // donde i es un número entero comprendido entre [0, n-1], siendo n el tamaño
 // de la lista.
 template <typename Tipo >
-Tipo* Lista< Tipo >::operator [] (const int indice) {
-
+Tipo* Lista< Tipo >::operator[] (const int indice) {
 	int i;
 	Nodo *nodo = this->primero;
 

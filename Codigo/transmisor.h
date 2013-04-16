@@ -7,13 +7,13 @@
 #ifndef TRANSMISOR_H
 #define TRANSMISOR_H
 
+
+#include <string>
 #include <iostream>
-using namespace std;
 
 
 
 class Transmisor {
-
 private:
 
 	// Estado del transmisor
@@ -37,7 +37,7 @@ public:
 	bool estaActivo();
 
 	// Se ejecuta la transmisión de un dato.
-	virtual void transmitir(const string& palabra) = 0;
+	virtual void transmitir(const std::string& palabra) = 0;
 };
 
 

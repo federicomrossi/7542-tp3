@@ -1,6 +1,10 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase WORDMANGLING
+ * ............................................................................
+ * Modela el módulo encargado de llevar a cabo el word mangling a partir de una
+ * lista de reglas sobre palabras recibidas a través de un receptor.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -20,19 +24,17 @@ WordMangling::WordMangling(Lista< Regla >& lReglas) : lReglas(lReglas) { }
 // PRE: 'rxPalabras' es un Receptor de palabras sobre las que se
 // aplicarán las reglas.
 void WordMangling::ejecutar(Receptor *rxPalabras) {
-
 	// Aplicamos reglas a cada palabra entrante recibida
-	string palabra = rxPalabras->recibir();
+	std::string palabra = rxPalabras->recibir();
 
-	while(!palabra.empty())
-	{
+	while(!palabra.empty()) {
 		// Creamos la pila de transformaciones
-		Pila< string > pTransformaciones;
+		Pila< std::string > pTransformaciones;
 		// Apilamos la palabra original
 		pTransformaciones.apilar(palabra);
 
 		// Aplicamos reglas a palabra
-		for(int i=0; i < this->lReglas.tamanio(); i++)
+		for(int i = 0; i < this->lReglas.tamanio(); i++)
 			this->lReglas[i]->aplicar(pTransformaciones);
 
 		palabra = rxPalabras->recibir();

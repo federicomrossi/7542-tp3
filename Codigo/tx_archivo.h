@@ -1,6 +1,11 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase TXARCHIVO
+ * ............................................................................
+ * Transmisor que transmite los datos hacia un archivo de salida. El archivo de
+ * salida se crea si no existe, y de existir, no se trunca, sino que se siguen
+ * escribiendo las transmisiones al final del archivo.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -15,24 +20,22 @@
 
 
 class TxArchivo:public Transmisor {
-
 private:
 
-	ofstream archivo;		// Archivo en donde se escriben las palabras
-							// alteradas
+	std::ofstream archivo;		// Archivo en donde se escriben las palabras
+								// alteradas
 
 public:
 
 	// Constructor
-	TxArchivo(const string& nombre_archivo);
+	explicit TxArchivo(const std::string& nombre_archivo);
 
 	// Destructor
 	~TxArchivo();
 
 	// Se ejecuta la transmisión de un dato hacia un archivo. Se almacena
 	// una palabra por línea.
-	void transmitir(const string& palabra);
+	void transmitir(const std::string& palabra);
 };
-
 
 #endif

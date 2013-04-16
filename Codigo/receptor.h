@@ -8,13 +8,12 @@
 #ifndef RECEPTOR_H
 #define RECEPTOR_H
 
+#include <string>
 #include <iostream>
-using namespace std;
 
 
 
 class Receptor {
-
 private:
 
 	// Estado del receptor
@@ -25,7 +24,7 @@ protected:
 	// Activa el receptor
 	void activar();
 
-	// Desactivar el receptor
+	// Desactiva el receptor
 	void desactivar();
 
 public:
@@ -40,7 +39,7 @@ public:
 	// Se ejecuta la recepción de un dato desde la entrada estándar.
 	// POST: se devuelve la palabra recibida. Debe considerarse terminada la
 	// recepción de palabras cuando se recibe una cadena vacía, es decir, nada.
-	virtual string recibir() = 0;
+	virtual std::string recibir() = 0;
 };
 
 

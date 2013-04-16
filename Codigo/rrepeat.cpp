@@ -4,12 +4,13 @@
  * ............................................................................
  * La regla copia el substring delimitado por 'n' y 'm', lo repite 'r' veces
  * y lo inserta en la posición 'i'.
- * Si 'i' es positivo, se insertará el substring antes del caracter en la
- * posición 'i'. Si es negativo, se insertará después del caracter en la
+ * Si 'i' es positivo, se insertará el substring antes del caractér en la
+ * posición 'i'. Si es negativo, se insertará después del caractér en la
  * posición 'i'.
  * Si 'i' es positivo y excede las posiciones válidas de la palabra, se
  * insertará al final, mientras que, si es negativo, se insertará al 
  * principio.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -32,10 +33,9 @@ RRepeat::~RRepeat() { }
 
 
 // Aplica la regla sobre una pila de transformaciones
-void RRepeat::aplicar(Pila< string >& pTransformaciones) {
-	
+void RRepeat::aplicar(Pila< std::string >& pTransformaciones) {
 	// Tomamos la palabra sobre la cual debemos aplicar
-	string s = pTransformaciones.verTope();
+	std::string s = pTransformaciones.verTope();
 	int sTamanio = s.size();
 
 	// Verificamos si estamos dentro del rango de la palabra
@@ -47,9 +47,9 @@ void RRepeat::aplicar(Pila< string >& pTransformaciones) {
 	int ii = convertirEnPosicionValida(sTamanio, this->i);
 
 	// Tomamos el substring y generamos el string repetido a insertar
-	string sToRepeat = s.substr(nn, mm-nn+1);
-	string sToAppend = sToRepeat;
-	for(int i=0; ++i < this->r; sToAppend.append(sToRepeat));
+	std::string sToRepeat = s.substr(nn, mm-nn+1);
+	std::string sToAppend = sToRepeat;
+	for(int i = 0; ++i < this->r; sToAppend.append(sToRepeat));
 
 	// Si 'i' es negativo, la posición a insertar deberá ser después del
 	// caracter en la posición 'i'. Si 'i' es positivo y excede las posiciones

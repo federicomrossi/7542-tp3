@@ -1,6 +1,9 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase RPRINT
+ * ............................................................................
+ * La regla transmite el resultado de la transformación mas reciente.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -19,8 +22,7 @@ RPrint::~RPrint() { }
 
 // Aplica la regla sobre una pila de transformaciones. La regla emite la
 // última modificación realizada.
-void RPrint::aplicar(Pila< string >& pTransformaciones) {
-	
+void RPrint::aplicar(Pila< std::string >& pTransformaciones) {
 	// Apilamos una copia del tope actual de la pila para poder considerar
 	// a print como una modificación
 	pTransformaciones.apilar(pTransformaciones.verTope());

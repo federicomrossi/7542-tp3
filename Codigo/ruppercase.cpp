@@ -4,6 +4,7 @@
  * ............................................................................
  * La regla transforma los caracteres que están en la posición 'n' hasta la 
  * posición 'm' (inclusive) a mayúsculas.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -24,10 +25,9 @@ RUppercase::~RUppercase() { }
 
 
 // Aplica la regla sobre una pila de transformaciones
-void RUppercase::aplicar(Pila< string >& pTransformaciones) {
-
+void RUppercase::aplicar(Pila< std::string >& pTransformaciones) {
 	// Tomamos la palabra sobre la cual debemos aplicar
-	string s = pTransformaciones.verTope();
+	std::string s = pTransformaciones.verTope();
 	int sTamanio = s.size();
 
 	// Verificamos si estamos dentro del rango de la palabra

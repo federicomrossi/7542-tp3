@@ -1,6 +1,10 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase RROTATE
+ * ............................................................................
+ * La regla mueve los caracteres 'n' lugares hacia la derecha en forma
+ * circular. Si 'n' es negativo, la rotación se hace hacia la izquierda.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -14,7 +18,6 @@
 
 
 class RRotate:public Regla {
-
 private:
 
 	int n;				// Cantidad de lugares que deben moverse los caracteres
@@ -23,14 +26,13 @@ private:
 public:
 
 	// Constructor
-	RRotate(int n);
+	explicit RRotate(int n);
 
 	// Destructor
 	~RRotate();
 
 	// Aplica la regla sobre una pila de transformaciones
-	virtual void aplicar(Pila< string >& pTransformaciones);
-
+	virtual void aplicar(Pila< std::string >& pTransformaciones);
 };
 
 

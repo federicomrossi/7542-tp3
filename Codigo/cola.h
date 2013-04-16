@@ -2,10 +2,7 @@
  * ****************************************************************************
  * Clase COLA
  * ............................................................................
- * Implementación de la clase Cola. Esta puede almacenar cualquier tipo de
- * datos. Se recomienda almacenar punteros para evitar hacer copias de los
- * datos, recordando al usuario que corre por su cuenta el asegurar que estos
- * sean destruidos fuera del alcance de la cola.
+ * Implementación de la clase Cola.
  *
  * ****************************************************************************
  * ***************************************************************************/
@@ -24,7 +21,6 @@
 
 template < typename Tipo > 
 class Cola {
-
 private:
 
 	struct Nodo {
@@ -32,7 +28,7 @@ private:
 		Nodo *siguiente;		// Puntero al siguiente nodo
 
 		// Constructor
-		Nodo(Tipo& dato) : dato(dato), siguiente(0) { }
+		explicit Nodo(Tipo& dato) : dato(dato), siguiente(0) { }
 	};
 
 	int cantElementos;			// Número de elementos en la cola
@@ -59,13 +55,11 @@ public:
 
 
 	// Saca el primer elemento de la cola.
-	// POST: se retorna el dato que ha sido desencolado. De no haber
-	// elementos en la cola, se lanzará un error de tipo ERROR.
+	// POST: se retorna el dato que ha sido desencolado.
 	Tipo desencolar();
 
 	// Obtiene el valor del primer elemento de la cola. 
-	// POST: se devuelve el dato que se encuentra primero en la cola. De no
-	// haber elementos en la cola, se lanzará un error de tipo ERROR.
+	// POST: se devuelve el dato que se encuentra primero en la cola.
 	Tipo verPrimero();
 };
 
@@ -136,8 +130,7 @@ void Cola< Tipo >::encolar(Tipo dato) {
 
 
 // Saca el primer elemento de la cola.
-// POST: se retorna el dato que ha sido desencolado. De no haber
-// elementos en la cola, se lanzará un error de tipo ERROR.
+// POST: se retorna el dato que ha sido desencolado.
 template <typename Tipo >
 Tipo Cola< Tipo >::desencolar() {
 	// Tomamos dato del nodo
@@ -158,13 +151,9 @@ Tipo Cola< Tipo >::desencolar() {
 
 
 // Obtiene el valor del primer elemento de la cola. 
-// POST: se devuelve el dato que se encuentra primero en la cola. De no
-// haber elementos en la cola, se lanzará un error de tipo ERROR.
+// POST: se devuelve el dato que se encuentra primero en la cola.
 template <typename Tipo >
 Tipo Cola< Tipo >::verPrimero() {
-
-	// AGREGAR EXCEPCION PARA CUANDO NO HAY ELEMENTOS!!!!!
-
 	return (this->primero->dato);
 }
 

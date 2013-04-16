@@ -4,6 +4,7 @@
  * ............................................................................
  * La regla mueve los caracteres 'n' lugares hacia la derecha en forma
  * circular. Si 'n' es negativo, la rotación se hace hacia la izquierda.
+ *
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -14,7 +15,6 @@
 
 // Constructor
 RRotate::RRotate(int n) {
-	
 	if(n >= 0) {
 		this->derecha = true;
 		this->n = n;
@@ -31,13 +31,12 @@ RRotate::~RRotate() { }
 
 
 // Aplica la regla sobre una pila de transformaciones
-void RRotate::aplicar(Pila< string >& pTransformaciones) {
-	
+void RRotate::aplicar(Pila< std::string >& pTransformaciones) {
 	// Tomamos la palabra sobre la cual debemos aplicar
-	string s = pTransformaciones.verTope();
+	std::string s = pTransformaciones.verTope();
 	int sTamanio = s.size();
 
-	for(int j=0; j < this->n; j++) {
+	for(int j = 0; j < this->n; j++) {
 		// Rotamos hacia la derecha
 		if(this->derecha) {
 			// Guardamos el último caractér que será el último en moverse
