@@ -17,7 +17,8 @@ class RRotate:public Regla {
 
 private:
 
-	int n;		// Cantidad de lugares que deben moverse los caracteres
+	int n;				// Cantidad de lugares que deben moverse los caracteres
+	bool derecha;		// Rotar hacia la derecha
 
 public:
 
@@ -26,6 +27,7 @@ public:
 
 	// Aplica la regla sobre una pila de transformaciones
 	virtual void aplicar(Pila< string >& pTransformaciones);
+
 };
 
 

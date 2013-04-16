@@ -1,2 +1,2 @@
-uppercase -8 -5 ;
+rotate 3 ;
 print ;
