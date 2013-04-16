@@ -1,0 +1,7 @@
+rrevert.o rrevert.deps : rrevert.cpp rrevert.h regla.h pila.h
+
+rrevert.h:
+
+regla.h:
+
+pila.h:

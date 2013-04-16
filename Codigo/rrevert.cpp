@@ -1,6 +1,8 @@
 /* ****************************************************************************
  * ****************************************************************************
  * Clase RREVERT
+ * ............................................................................
+ * La revierte los efectos de las modificaciones de las últimas i reglas.
  * ****************************************************************************
  * ***************************************************************************/
 
@@ -18,5 +20,6 @@ RRevert::RRevert(int i) {
 // Aplica la regla sobre una pila de transformaciones
 void RRevert::aplicar(Pila< string >& pTransformaciones) {
 	
-	cout << "Se aplico RRevert" << endl;
+	// Desapilamos i veces
+	for(int i=0; i++ < this->i; pTransformaciones.desapilar());
 }

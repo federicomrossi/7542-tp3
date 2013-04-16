@@ -9,3 +9,4 @@ revert 2 ;
 rotate
 -4
 ;
+print ;

@@ -1,0 +1,5 @@
+tx_archivo.o tx_archivo.deps : tx_archivo.cpp tx_archivo.h transmisor.h
+
+tx_archivo.h:
+
+transmisor.h:

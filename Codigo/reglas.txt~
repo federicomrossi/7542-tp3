@@ -1,5 +1,11 @@
-uppercase 0 0 ;
-repeat 0 -1 1 -1 ;
-print ;        
-insert -1 123 ;
-print ; 
+print
+;
+rotate             2      ;
+       rotate      -4    ;
+rotate 6 ;                
+print ;                  
+insert 0 qwerty ;       
+revert 2 ;             
+rotate
+-4
+;

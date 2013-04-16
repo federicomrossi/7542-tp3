@@ -1,0 +1,20 @@
+tp.o tp.deps : tp.cpp parser_entrada.h receptor.h parser_salida.h transmisor.h \
+ parser_reglas.h lista.h regla.h pila.h word_mangling.h
+
+parser_entrada.h:
+
+receptor.h:
+
+parser_salida.h:
+
+transmisor.h:
+
+parser_reglas.h:
+
+lista.h:
+
+regla.h:
+
+pila.h:
+
+word_mangling.h:

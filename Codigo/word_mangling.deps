@@ -1,0 +1,12 @@
+word_mangling.o word_mangling.deps : word_mangling.cpp word_mangling.h lista.h regla.h pila.h \
+ receptor.h
+
+word_mangling.h:
+
+lista.h:
+
+regla.h:
+
+pila.h:
+
+receptor.h:

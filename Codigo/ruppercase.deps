@@ -1,0 +1,7 @@
+ruppercase.o ruppercase.deps : ruppercase.cpp ruppercase.h regla.h pila.h
+
+ruppercase.h:
+
+regla.h:
+
+pila.h:

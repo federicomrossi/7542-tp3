@@ -1,0 +1,6 @@
+rx_entrada_estandar.o rx_entrada_estandar.deps : rx_entrada_estandar.cpp rx_entrada_estandar.h \
+ receptor.h
+
+rx_entrada_estandar.h:
+
+receptor.h:

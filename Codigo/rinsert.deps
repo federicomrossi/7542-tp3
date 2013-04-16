@@ -1,0 +1,7 @@
+rinsert.o rinsert.deps : rinsert.cpp rinsert.h regla.h pila.h
+
+rinsert.h:
+
+regla.h:
+
+pila.h:
