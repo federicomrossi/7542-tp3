@@ -13,6 +13,10 @@
 RPrint::RPrint(Transmisor *tx) : tx(tx) { }
 
 
+// Destructor
+RPrint::~RPrint() { }
+
+
 // Aplica la regla sobre una pila de transformaciones. La regla emite la
 // última modificación realizada.
 void RPrint::aplicar(Pila< string >& pTransformaciones) {

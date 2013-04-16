@@ -43,21 +43,19 @@ const string S_FIN_INSTRUCCION = ";";
 // para emitir palabras.
 // POST: se devuelve una referencia a una lista que contiene, en orden
 // de aparición en el archivo, los objetos que son Regla.
-Lista< Regla* > ParserReglas::parsear(const string& nombre_archivo, 
+Lista< Regla > ParserReglas::parsear(const string& nombre_archivo, 
 	Transmisor *tx) {
 	
+	// Creamos la lista de reglas
+	Lista< Regla > lReglas;
+
 	// Abrimos archivo
 	ifstream archivo;
 	archivo.open(nombre_archivo.c_str());
 
 	// Verificamos que se halla abierto correctamente
-	if(!archivo.is_open())
-		// [ INSERTAR EXCEPCION ]
-		cout << "El archivo no se abrio" << endl;
+	if(!archivo.is_open()) return lReglas;
 
-
-	// Creamos la lista de reglas
-	Lista< Regla* > lReglas;
 
 	// Variables auxiliares para parseo
 	string instruccion, mmm, fin;

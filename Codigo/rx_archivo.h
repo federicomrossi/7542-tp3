@@ -18,7 +18,7 @@ class RxArchivo:public Receptor {
 
 private:
 
-	ifstream archivo;		// Archivo del que se toman las palabras
+	ifstream archivo;			// Archivo del que se toman las palabras
 
 public:
 

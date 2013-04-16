@@ -9,6 +9,12 @@
 
 
 
+// Constructor
+RxEntradaEstandar::RxEntradaEstandar() {
+	activar();
+}
+
+
 // Se ejecuta la recepción de un dato desde la entrada estándar.
 // POST: se devuelve la palabra recibida. Debe considerarse terminada la
 // recepción de palabras cuando se recibe una cadena vacía, es decir, nada. 

@@ -37,6 +37,10 @@
 
 int main(int argc, char* argv[]) {
 	
+	// Si la cantidad de argumentos no es la correcta, lanzamos código de
+	// retorno
+	if(argc != 4) return 1;
+
 	// Declaramos parsers
 	ParserEntrada pEntrada;
 	ParserSalida pSalida;
@@ -45,8 +49,12 @@ int main(int argc, char* argv[]) {
 	// Parseamos argumentos de entrada
 	Receptor *rxPalabras = pEntrada.parsear(argv[2]);
 	Transmisor *tx = pSalida.parsear(argv[3]);
-	Lista< Regla* > lReglas = pReglas.parsear(argv[1], tx);
+	Lista< Regla > lReglas = pReglas.parsear(argv[1], tx);
 
+	// Verificamos que esten activos el transmisor y el receptor
+	if(!rxPalabras->estaActivo() || !tx->estaActivo() || lReglas.estaVacia()) 
+		return 2;
+	
 	// Ejecutamos el proceso de alteración de palabras
 	WordMangling wordMangling(lReglas);
 	wordMangling.ejecutar(rxPalabras);

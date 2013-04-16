@@ -26,6 +26,9 @@ public:
 	// Constructor
 	RRevert(int i);
 
+	// Destructor
+	~RRevert();
+
 	// Aplica la regla sobre una pila de transformaciones
 	virtual void aplicar(Pila< string >& pTransformaciones);
 };

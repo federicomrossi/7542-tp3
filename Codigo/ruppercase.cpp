@@ -19,6 +19,10 @@ RUppercase::RUppercase(int n, int m) {
 }
 
 
+// Destructor
+RUppercase::~RUppercase() { }
+
+
 // Aplica la regla sobre una pila de transformaciones
 void RUppercase::aplicar(Pila< string >& pTransformaciones) {
 

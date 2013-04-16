@@ -8,6 +8,9 @@
 #include "regla.h"
 
 
+// Destructor
+Regla::~Regla() { }
+
 
 // Convierte una posición de entrada en una posición válida de un string
 // PRE: 'sTamanio' es el tamaño del string al que se refiere; 'pos' es la

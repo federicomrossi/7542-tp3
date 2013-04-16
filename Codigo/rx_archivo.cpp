@@ -15,9 +15,8 @@ RxArchivo::RxArchivo(const string& nombre_archivo) {
 	this->archivo.open(nombre_archivo.c_str());
 
 	// Verificamos que se halla abierto correctamente
-	if(!this->archivo.is_open())
-		// [ INSERTAR EXCEPCION ]
-		cout << "El archivo no se abrio" << endl;
+	if(this->archivo.is_open()) activar();
+	else desactivar();
 }
 
 

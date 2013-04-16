@@ -20,6 +20,9 @@ class Regla {
 
 public:
 
+	// Destructor
+	virtual ~Regla();
+
 	// Aplica la regla sobre una pila de transformaciones.
 	virtual void aplicar(Pila< string >& pTransformaciones) = 0;
 

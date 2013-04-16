@@ -63,6 +63,13 @@ CXXSTD = c++98
 # Si se quiere compilar estaticamente, descomentar la siguiente linea
 #static = si
 
+# Archivo log de Valgrind.
+VGLOGFILE = valgrind.out
+
+# Flags para el Valgrind
+VGFLAGS = --tool=memcheck --trace-children=yes --track-fds=yes --time-stamp=yes --num-callers=20 --error-exitcode=42 --db-attach=no --leak-check=full --leak-resolution=med --log-file=$(VGLOGFILE)
+
+
 
 # VARIABLES CALCULADAS A PARTIR DE LA CONFIGURACION
 ####################################################
@@ -154,5 +161,10 @@ $(target): $(o_files)
 	$(LD) $(LDFLAGS) $(o_files) $(LOADLIBS) $(LDLIBS) -o $(target)
 
 clean:
-	$(RM) $(o_files) $(o_files:.o=.deps) $(target)
+	$(RM) $(o_files) $(o_files:.o=.deps) $(VGLOGFILE) $(target)
 
+valgrind: 
+	valgrind $(VGFLAGS) ./$(target) reglas.txt in.txt -
+
+returns:
+	sh CheckReturnNotEqualsTo.sh 42 /usr/bin/valgrind --tool=memcheck --trace-children=yes --track-fds=yes --time-stamp=yes --num-callers=20 --error-exitcode=42 --db-attach=no --leak-check=full --leak-resolution=med --log-file=valgrind.out ./$(target) reglas.txt in.txt -

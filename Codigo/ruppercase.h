@@ -28,6 +28,9 @@ public:
 	// Constructor
 	RUppercase(int n, int m);
 
+	// Destructor
+	~RUppercase();
+
 	// Aplica la regla sobre una pila de transformaciones.
 	virtual void aplicar(Pila< string >& pTransformaciones);
 

@@ -12,6 +12,10 @@
 // Constructor
 TxArchivo::TxArchivo(const string& nombre_archivo) {
 	this->archivo.open(nombre_archivo.c_str(), ios::app);
+	
+	// Verificamos que se halla abierto correctamente
+	if(this->archivo.is_open()) activar();
+	else desactivar();
 }
 
 

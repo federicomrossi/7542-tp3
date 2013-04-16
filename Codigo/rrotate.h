@@ -25,6 +25,9 @@ public:
 	// Constructor
 	RRotate(int n);
 
+	// Destructor
+	~RRotate();
+
 	// Aplica la regla sobre una pila de transformaciones
 	virtual void aplicar(Pila< string >& pTransformaciones);
 

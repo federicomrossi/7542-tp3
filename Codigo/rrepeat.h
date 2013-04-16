@@ -36,6 +36,9 @@ public:
 	// Constructor
 	RRepeat(int n, int m, int r, int i);
 
+	// Destructor
+	~RRepeat();
+
 	// Aplica la regla sobre una pila de transformaciones
 	virtual void aplicar(Pila< string >& pTransformaciones);
 };

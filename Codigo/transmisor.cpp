@@ -1,28 +1,28 @@
 /* ****************************************************************************
  * ****************************************************************************
- * Clase TXSALIDAESTANDAR
+ * Clase TRANSMISOR
  * ****************************************************************************
  * ***************************************************************************/
-
-
-#ifndef TX_SALIDA_ESTANDAR_H
-#define TX_SALIDA_ESTANDAR_H
 
 
 #include "transmisor.h"
 
 
 
-class TxSalidaEstandar:public Transmisor {
-
-public:
-
-	// Constructor
-	TxSalidaEstandar();
-
-	// Se ejecuta la transmisión de un dato hacia la salida estándar.
-	virtual void transmitir(const string& palabra);
-};
+// Verifica si el transmisor esta activo.
+// POST: devuelve true si está activo o false en caso contrario
+bool Transmisor::estaActivo() {
+	return this->activo;
+}
 
 
-#endif
+// Activa el transmisor
+void Transmisor::activar() {
+	this->activo = true;
+}
+
+
+// Activa el transmisor
+void Transmisor::desactivar() {
+	this->activo = false;
+}

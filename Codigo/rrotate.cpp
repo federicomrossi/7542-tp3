@@ -26,6 +26,10 @@ RRotate::RRotate(int n) {
 }
 
 
+// Destructor
+RRotate::~RRotate() { }
+
+
 // Aplica la regla sobre una pila de transformaciones
 void RRotate::aplicar(Pila< string >& pTransformaciones) {
 	

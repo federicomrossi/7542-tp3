@@ -27,6 +27,10 @@ RRepeat::RRepeat(int n, int m, int r, int i) {
 }
 
 
+// Destructor
+RRepeat::~RRepeat() { }
+
+
 // Aplica la regla sobre una pila de transformaciones
 void RRepeat::aplicar(Pila< string >& pTransformaciones) {
 	
@@ -36,7 +40,6 @@ void RRepeat::aplicar(Pila< string >& pTransformaciones) {
 
 	// Verificamos si estamos dentro del rango de la palabra
 	if(estaFueraDeRango(sTamanio, this->n, this->m)) return;
-	else if(estaFueraDeRango(sTamanio, this->i)) return;
 
 	// Convertimos posiciones en posiciones válidas respecto al string
 	int nn = convertirEnPosicionValida(sTamanio, this->n);

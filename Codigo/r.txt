@@ -1,9 +1,0 @@
-insert 0 Q ;
-print ;
-insert 0 W ;
-print ;
-revert 2 ;
-insert 0 E ;
-print ;
-rever 3 ;
-print ;

@@ -19,6 +19,10 @@ RLowercase::RLowercase(int n, int m) {
 }
 
 
+// Destructor
+RLowercase::~RLowercase() { }
+
+
 // Aplica la regla sobre una pila de transformaciones
 void RLowercase::aplicar(Pila< string >& pTransformaciones) {
 	

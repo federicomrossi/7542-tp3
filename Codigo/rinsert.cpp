@@ -24,15 +24,16 @@ RInsert::RInsert(int i, string mmm) {
 }
 
 
+// Destructor
+RInsert::~RInsert() { }
+
+
 // Aplica la regla sobre una pila de transformaciones
 void RInsert::aplicar(Pila< string >& pTransformaciones) {
 	
 	// Tomamos la palabra sobre la cual debemos aplicar
 	string s = pTransformaciones.verTope();
 	int sTamanio = s.size();
-
-	// Verificamos si estamos dentro del rango de la palabra
-	if(estaFueraDeRango(sTamanio, this->i)) return;
 
 	// Convertimos posiciones en posiciones válidas respecto al string
 	int ii = convertirEnPosicionValida(sTamanio, this->i);

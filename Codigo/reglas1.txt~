@@ -1,6 +1,0 @@
-uppercase 0 0 ;
-repeat 0 -1 1 -1 ;
-print ;        
-insert -1 123 ;
-print ; 
-

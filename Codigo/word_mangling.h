@@ -19,12 +19,12 @@ class WordMangling {
 
 private:
 
-	Lista< Regla* >& lReglas;		// Lista de reglas a aplicar
+	Lista< Regla >& lReglas;		// Lista de reglas a aplicar
 
 public:
 
 	// Constructor
-	WordMangling(Lista< Regla* >& lReglas);
+	WordMangling(Lista< Regla >& lReglas);
 
 	// Ejecuta el alterador de palabras.
 	// PRE: 'rxPalabras' es un Receptor de palabras sobre las que se

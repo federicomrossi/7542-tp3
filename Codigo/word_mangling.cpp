@@ -13,7 +13,7 @@
 
 // Constructor:
 // 'lReglas' es una Lista de Reglas que se desean aplicar
-WordMangling::WordMangling(Lista< Regla* >& lReglas) : lReglas(lReglas) { }
+WordMangling::WordMangling(Lista< Regla >& lReglas) : lReglas(lReglas) { }
 
 
 // Ejecuta el alterador de palabras.

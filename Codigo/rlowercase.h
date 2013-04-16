@@ -28,6 +28,9 @@ public:
 	// Constructor
 	RLowercase(int n, int m);
 
+	// Destructor
+	~RLowercase();
+
 	// Aplica la regla sobre una pila de transformaciones
 	virtual void aplicar(Pila< string >& pTransformaciones);
 };
