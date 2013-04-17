@@ -22,7 +22,7 @@ void Transmisor::activar() {
 }
 
 
-// Activa el transmisor
+// Desactiva el transmisor
 void Transmisor::desactivar() {
 	this->activo = false;
 }
