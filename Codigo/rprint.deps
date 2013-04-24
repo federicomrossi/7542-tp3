@@ -1,9 +1,0 @@
-rprint.o rprint.deps : rprint.cpp rprint.h regla.h pila.h transmisor.h
-
-rprint.h:
-
-regla.h:
-
-pila.h:
-
-transmisor.h:

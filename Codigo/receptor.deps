@@ -1,3 +1,0 @@
-receptor.o receptor.deps : receptor.cpp receptor.h
-
-receptor.h:

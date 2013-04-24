@@ -1,3 +1,0 @@
-transmisor.o transmisor.deps : transmisor.cpp transmisor.h
-
-transmisor.h:

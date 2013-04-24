@@ -1,7 +1,0 @@
-rrotate.o rrotate.deps : rrotate.cpp rrotate.h regla.h pila.h
-
-rrotate.h:
-
-regla.h:
-
-pila.h:
