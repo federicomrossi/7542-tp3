@@ -21,10 +21,10 @@ RLowercase::RLowercase(int n, int m) : n(n), m(m) { }
 RLowercase::~RLowercase() { }
 
 
-// Aplica la regla sobre una pila de transformaciones
-void RLowercase::aplicar(Pila< std::string >& pTransformaciones) {
+// Aplica la regla sobre una lista de transformaciones
+void RLowercase::aplicar(ListaRef< std::string >& lTransformaciones) {
 	// Tomamos la palabra sobre la cual debemos aplicar
-	std::string s = pTransformaciones.verTope();
+	std::string s = lTransformaciones.verUltimo();
 	int sTamanio = s.size();
 
 	// Verificamos si estamos dentro del rango de la palabra
@@ -38,6 +38,6 @@ void RLowercase::aplicar(Pila< std::string >& pTransformaciones) {
 	for(int i = nn; i <= mm; i++)
 		s[i] = tolower(s[i]);
 
-	// Apilamos la transformación
-	pTransformaciones.apilar(s);
+	// Insertamos la transformación en la lista
+	lTransformaciones.insertarUltimo(s);
 }

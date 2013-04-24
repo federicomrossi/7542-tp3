@@ -22,28 +22,16 @@ RRevert::RRevert(int i) {
 RRevert::~RRevert() { }
 
 
-// Aplica la regla sobre una pila de transformaciones
-void RRevert::aplicar(Pila< std::string >& pTransformaciones) {
-	// Creamos pila auxiliar
-	Pila< std::string > pAux;
+// Aplica la regla sobre una lista de transformaciones
+// POST: Si la lista contiene menos cantidad de transformaciones que las que se
+// desean revertir no se revierte nada, queda como estaba la lista.
+void RRevert::aplicar(ListaRef< std::string >& lTransformaciones) {
+	// Calculamos la posición a la que hay que revertir
+	int pos = lTransformaciones.tamanio() - this->i - 1;
 
-	// Desapilamos i veces
-	for(int i = 0; i < this->i; i++) {
-		if(!pTransformaciones.estaVacia()) {
-			pAux.apilar(pTransformaciones.verTope());
-			pTransformaciones.desapilar();
-		}
-	}
+	// Verificamos si hay elementos y que la cantidad a revertir sea válida
+	if(lTransformaciones.estaVacia() || pos < 0) return;
 
-	// Memorizamos el string hacia el que se quiere revertir
-	std::string sRevert = pTransformaciones.verTope();
-
-	// Apilamos nuevamente transformaciones intermedias
-	while(!pAux.estaVacia()) {
-		pTransformaciones.apilar(pAux.verTope());
-		pAux.desapilar();
-	}
-
-	// Apilamos el string hacia el que se quiere revertir
-	pTransformaciones.apilar(sRevert);
+	// Insertamos la transformación en la lista
+	lTransformaciones.insertarUltimo(lTransformaciones[pos]);
 }

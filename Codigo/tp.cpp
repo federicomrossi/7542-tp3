@@ -97,7 +97,6 @@ int main(int argc, char* argv[]) {
 
 	// Verificamos que esten activos el transmisor y el receptor
 	if(!rxPalabras->estaActivo() || !tx->estaActivo() || lReglas.estaVacia()) {
-		
 		// Liberamos memoria
 		delete rxPalabras;
 		delete tx;

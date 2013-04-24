@@ -30,9 +30,9 @@ public:
 	// Destructor
 	~RPrint();
 
-	// Aplica la regla sobre una pila de transformaciones. La regla emite la
+	// Aplica la regla sobre una lista de transformaciones. La regla emite la
 	// última modificación realizada.
-	virtual void aplicar(Pila< std::string >& pTransformaciones);
+	virtual void aplicar(ListaRef< std::string >& lTransformaciones);
 };
 
 

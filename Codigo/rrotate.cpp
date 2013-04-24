@@ -30,10 +30,10 @@ RRotate::RRotate(int n) {
 RRotate::~RRotate() { }
 
 
-// Aplica la regla sobre una pila de transformaciones
-void RRotate::aplicar(Pila< std::string >& pTransformaciones) {
+// Aplica la regla sobre una lista de transformaciones
+void RRotate::aplicar(ListaRef< std::string >& lTransformaciones) {
 	// Tomamos la palabra sobre la cual debemos aplicar
-	std::string s = pTransformaciones.verTope();
+	std::string s = lTransformaciones.verUltimo();
 	int sTamanio = s.size();
 
 	for(int j = 0; j < this->n; j++) {
@@ -53,7 +53,7 @@ void RRotate::aplicar(Pila< std::string >& pTransformaciones) {
 		}
 	}
 
-	// Apilamos la transformación
-	pTransformaciones.apilar(s);
+	// Insertamos la transformación en la lista
+	lTransformaciones.insertarUltimo(s);
 }
 		

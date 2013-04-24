@@ -10,7 +10,7 @@
 
 
 #include "word_mangling.h"
-#include "pila.h"
+#include "listaref.h"
 
 
 
@@ -28,14 +28,14 @@ void WordMangling::ejecutar(Receptor *rxPalabras) {
 	std::string palabra = rxPalabras->recibir();
 
 	while(!palabra.empty()) {
-		// Creamos la pila de transformaciones
-		Pila< std::string > pTransformaciones;
-		// Apilamos la palabra original
-		pTransformaciones.apilar(palabra);
+		// Creamos la lista de transformaciones
+		ListaRef< std::string > lTransformaciones;
+		// Insertamos la palabra original
+		lTransformaciones.insertarUltimo(palabra);
 
 		// Aplicamos reglas a palabra
 		for(int i = 0; i < this->lReglas.tamanio(); i++)
-			this->lReglas[i]->aplicar(pTransformaciones);
+			this->lReglas[i]->aplicar(lTransformaciones);
 
 		palabra = rxPalabras->recibir();
 	}

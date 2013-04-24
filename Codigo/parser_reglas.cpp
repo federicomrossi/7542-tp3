@@ -17,17 +17,19 @@
 #include "rprint.h"
 
 
-// Constantes para los nombres de instrucciones
-const std::string S_UPPERCASE = "uppercase";
-const std::string S_LOWERCASE = "lowercase";
-const std::string S_REPEAT = "repeat";
-const std::string S_ROTATE = "rotate";
-const std::string S_INSERT = "insert";
-const std::string S_REVERT = "revert";
-const std::string S_PRINT = "print";
+namespace {
+	// Constantes para los nombres de instrucciones
+	const std::string S_UPPERCASE = "uppercase";
+	const std::string S_LOWERCASE = "lowercase";
+	const std::string S_REPEAT = "repeat";
+	const std::string S_ROTATE = "rotate";
+	const std::string S_INSERT = "insert";
+	const std::string S_REVERT = "revert";
+	const std::string S_PRINT = "print";
 
-// Constante para caracter de fin de instrucción
-const std::string S_FIN_INSTRUCCION = ";";
+	// Constante para caracter de fin de instrucción
+	const std::string S_FIN_INSTRUCCION = ";";
+}
 
 
 
@@ -103,7 +105,6 @@ Lista< Regla > ParserReglas::parsear(const std::string& nombre_archivo,
 				delete lReglas.eliminarPrimero();
 			break;
 		}
-
 	}
 
 	// Cerramos el archivo

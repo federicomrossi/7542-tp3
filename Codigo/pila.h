@@ -132,7 +132,6 @@ void Pila< Tipo >::apilar(Tipo& dato) {
 // POST: si no hay elementos que desapilar no hace nada.
 template <typename Tipo >
 void Pila< Tipo >::desapilar() {
-
 	// Corroboramos que hayan elementos en la pila
 	if(this->cantElementos == 0) return;
 

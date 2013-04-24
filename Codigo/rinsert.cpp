@@ -29,10 +29,10 @@ RInsert::RInsert(int i, const std::string& mmm) {
 RInsert::~RInsert() { }
 
 
-// Aplica la regla sobre una pila de transformaciones
-void RInsert::aplicar(Pila< std::string >& pTransformaciones) {
+// Aplica la regla sobre una lista de transformaciones
+void RInsert::aplicar(ListaRef< std::string >& lTransformaciones) {
 	// Tomamos la palabra sobre la cual debemos aplicar
-	std::string s = pTransformaciones.verTope();
+	std::string s = lTransformaciones.verUltimo();
 	int sTamanio = s.size();
 
 	// Convertimos posiciones en posiciones válidas respecto al string
@@ -50,6 +50,6 @@ void RInsert::aplicar(Pila< std::string >& pTransformaciones) {
 	// Insertamos repetición en string
 	s.insert(ii, this->mmm);
 
-	// Apilamos la transformación
-	pTransformaciones.apilar(s);
+	// Insertamos la transformación en la lista
+	lTransformaciones.insertarUltimo(s);
 }

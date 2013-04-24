@@ -163,23 +163,47 @@ $(target): $(o_files)
 clean:
 	$(RM) $(o_files) $(o_files:.o=.deps) $(VGLOGFILE) $(target)
 
-valgrind1: 
-	valgrind $(VGFLAGS) ./$(target) 01/reglas.txt 01/in.txt -
+valgrind1:
+	if [ -a 01/_out.txt ] ; \
+	then \
+	     rm 01/_out.txt ; \
+	fi;	
+	valgrind $(VGFLAGS) ./$(target) 01/reglas.txt 01/in.txt 01/_out.txt
 
 valgrind2: 
-	valgrind $(VGFLAGS) ./$(target) 02/reglas.txt 02/in.txt -
+	if [ -a 02/_out.txt ] ; \
+	then \
+	     rm 02/_out.txt ; \
+	fi;	
+	valgrind $(VGFLAGS) ./$(target) 02/reglas.txt 02/in.txt 02/_out.txt
 
-valgrind3: 
-	valgrind $(VGFLAGS) ./$(target) 03/reglas.txt 03/in.txt -
+valgrind3:
+	if [ -a 03/_out.txt ] ; \
+	then \
+	     rm 03/_out.txt ; \
+	fi;	
+	valgrind $(VGFLAGS) ./$(target) 03/reglas.txt 03/in.txt 03/_out.txt
 
 valgrind4: 
-	valgrind $(VGFLAGS) ./$(target) 04/reglas.txt 04/in.txt -
+	if [ -a 04/_out.txt ] ; \
+	then \
+	     rm 04/_out.txt ; \
+	fi;	
+	valgrind $(VGFLAGS) ./$(target) 04/reglas.txt 04/in.txt 04/_out.txt
 
 valgrind5: 
-	valgrind $(VGFLAGS) ./$(target) 05/reglas.txt 05/in.txt -
+	if [ -a 05/_out.txt ] ; \
+	then \
+	     rm 05/_out.txt ; \
+	fi;	
+	valgrind $(VGFLAGS) ./$(target) 05/reglas.txt 05/in.txt 05/_out.txt
 
 valgrind6: 
-	valgrind $(VGFLAGS) ./$(target) 06/reglas.txt 06/in.txt -
+	if [ -a 06/_out.txt ] ; \
+	then \
+	     rm 06/_out.txt ; \
+	fi;	
+	valgrind $(VGFLAGS) ./$(target) 06/reglas.txt 06/in.txt 06/_out.txt
 
 p1:
 	./tp 01/reglas.txt 01/in.txt -

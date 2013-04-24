@@ -158,10 +158,10 @@
 	\medskip
 	\caption{Diagrama de clases de los receptores y transmisores.}
 \end{figure}
-\bigskip\bigskip\bigskip
+\bigskip\bigskip
 
 
-	Siguiendo adelante con el modelado de entidades, nos encontramos ahora con posiblemente la mas significativa del sistema ya que con estas se representan las distintas reglas a aplicar sobre las palabras. La clase madre, \textit{Regla} es una clase abstracta de quien heredan todas las demás clases que representan una regla. Todas deben implementar el método virtual \textit{aplicar} de manera de que poliformicamente se apliquen las reglas a cada palabra. Notará el lector que dicho método no recibe un string sino que, en su lugar, recibe una pila de strings. Este peculiar detalle se explica más adelante en la \textit{Sección 3.2}. En la \textit{Figura 2} se muestra un diagrama de clases dicha jerarquía.
+	Siguiendo adelante con el modelado de entidades, nos encontramos ahora con posiblemente la mas significativa del sistema ya que con estas se representan las distintas reglas a aplicar sobre las palabras. La clase madre, \textit{Regla} es una clase abstracta de quien heredan todas las demás clases que representan una regla. Todas deben implementar el método virtual \textit{aplicar} de manera de que poliformicamente se apliquen las reglas a cada palabra. Notará el lector que dicho método no recibe un string sino que, en su lugar, recibe una lista de referencias de strings. Este peculiar detalle se explica más adelante en la \textit{Sección 3.2}. En la \textit{Figura 2} se muestra el diagrama de clases dicha jerarquía.
 \bigskip
 
 
@@ -190,7 +190,7 @@
 	\par
 	Al darle la orden al objeto WordMangling de ejecutarse el proceso de alteración, se le envía un receptor que le proporcionará las palabras. De esta manera, palabra tras palabra es tratada, transformandola según las reglas contenidas en orden de aplicación en la lista de reglas.
 	\par
-	Cada resultado de una transformación es apilada en una pila auxiliar. Esta pila es creada por el mismo proceso de WordMangling y es pasada a cada regla (a través del método \textit{aplicar}) debido a que estas últimas deben de poder aplicarse sobre cualquiera de las trasnformaciones previamente realizadas.
+	Cada resultado de una transformación es insertada en una lista de referencias auxiliar. Esta lista es creada por el mismo proceso de WordMangling y es pasada a cada regla (a través del método \textit{aplicar}) debido a que estas últimas deben de poder aplicarse sobre cualquiera de las transformaciones previamente realizadas.
 \bigskip\medskip
 
 
@@ -204,7 +204,7 @@
 % Figura 3
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.87\textwidth]{images/diagrama_1.png}
+	\includegraphics[width=0.82\textwidth]{images/diagrama_1.png}
 	\medskip
 	\caption{Diagrama de clases general.}
 \end{figure}

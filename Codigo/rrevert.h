@@ -29,8 +29,8 @@ public:
 	// Destructor
 	~RRevert();
 
-	// Aplica la regla sobre una pila de transformaciones
-	virtual void aplicar(Pila< std::string >& pTransformaciones);
+	// Aplica la regla sobre una lista de transformaciones
+	virtual void aplicar(ListaRef< std::string >& lTransformaciones);
 };
 
 

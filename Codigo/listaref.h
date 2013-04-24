@@ -1,16 +1,16 @@
 /* ****************************************************************************
  * ****************************************************************************
- * Clase LISTA
+ * Clase LISTAREF
  * ............................................................................
- * Implementación de la clase Lista.
+ * Implementación de la clase ListaRef la cual modela una lista de referencias.
  *
  * ****************************************************************************
  * ***************************************************************************/
 
 
 
-#ifndef LISTA_H
-#define LISTA_H
+#ifndef LISTAREF_H
+#define LISTAREF_H
 
 
 /* ****************************************************************************
@@ -19,15 +19,15 @@
 
 
 template < typename Tipo > 
-class Lista {
+class ListaRef {
 private:
 
 	struct Nodo {
-		Tipo *dato;				// Dato al que referencia el nodo
+		Tipo dato;				// Dato al que referencia el nodo
 		Nodo *siguiente;		// Puntero al siguiente nodo
 
 		// Constructor
-		explicit Nodo(Tipo *dato) : dato(dato), siguiente(0) { }
+		explicit Nodo(Tipo& dato) : dato(dato), siguiente(0) { }
 	};
 
 	Nodo *primero;				// Puntero al primer elemento de la lista
@@ -38,10 +38,10 @@ private:
 public:
 
 	// Constructor
-	Lista();
+	ListaRef();
 
 	// Destructor
-	~Lista();
+	~ListaRef();
 
 	// Verifica si una lista se encuentra vacía.
 	// POST: Devuelve verdadero si la lista se encuentra vacía o falso en 
@@ -53,29 +53,29 @@ public:
 
 	// Inserta un elemento al principio de la lista.
 	// PRE: 'dato' es el dato a insertar.
-	void insertarPrimero(Tipo *dato);
+	void insertarPrimero(Tipo& dato);
 
 	// Inserta un elemento en el último lugar de la lista.
 	// PRE: 'dato' es el dato a insertar.
-	void insertarUltimo(Tipo *dato);
+	void insertarUltimo(Tipo& dato);
 
 	// Obtiene el valor del primer elemento de la lista. 
 	// POST: se devuelve el dato que se encuentra primero en la lista.
-	Tipo* verPrimero();
+	Tipo& verPrimero();
 
 	// Obtiene el valor del último elemento de la lista. 
 	// POST: se devuelve el dato que se encuentra último en la lista.
-	Tipo* verUltimo();
+	Tipo& verUltimo();
 
 	// Elimina el primer elemento de la lista. 
 	// POST: se retorna el elemento eliminado de la lista.
-	Tipo* eliminarPrimero();
+	void eliminarPrimero();
 
 	// Operador []
 	// Permite acceder a los índices de la lista mediante la notación 
 	// lista[i], donde i es un número entero comprendido entre [0, n-1],
 	// siendo n el tamaño de la lista.
-	Tipo* operator[] (const int indice);
+	Tipo& operator[] (const int indice);
 };
 
 
@@ -88,7 +88,7 @@ public:
 
 // Constructor
 template <typename Tipo >
-Lista< Tipo >::Lista() {
+ListaRef< Tipo >::ListaRef() {
 	this->primero = 0;
 	this->ultimo = 0;
 	this->largo = 0;
@@ -97,14 +97,13 @@ Lista< Tipo >::Lista() {
 
 // Destructor
 template <typename Tipo >
-Lista< Tipo >::~Lista() {
+ListaRef< Tipo >::~ListaRef() {
 	Nodo *nodo;
 
 	// Recorremos los nodos y los destruimos
 	while(this->primero) {
 		nodo = this->primero;
 		this->primero = nodo->siguiente;
-		delete nodo->dato;
 		delete nodo;
 	}
 }
@@ -114,14 +113,14 @@ Lista< Tipo >::~Lista() {
 // POST: Devuelve verdadero si la lista se encuentra vacía o falso en 
 // caso contrario.
 template <typename Tipo >
-bool Lista< Tipo >::estaVacia() {
+bool ListaRef< Tipo >::estaVacia() {
 	return (this->largo == 0);
 }
 
 
 // Devuelve el tamaño actual de la lista.
 template <typename Tipo >
-int Lista< Tipo >::tamanio() {
+int ListaRef< Tipo >::tamanio() {
 	return this->largo;
 }
 
@@ -129,7 +128,7 @@ int Lista< Tipo >::tamanio() {
 // Inserta un elemento al principio de la lista.
 // PRE: 'dato' es el dato a insertar.
 template <typename Tipo >
-void Lista< Tipo >::insertarPrimero(Tipo *dato) {
+void ListaRef< Tipo >::insertarPrimero(Tipo& dato) {
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
 
@@ -147,7 +146,7 @@ void Lista< Tipo >::insertarPrimero(Tipo *dato) {
 // Inserta un elemento en el último lugar de la lista.
 // PRE: 'dato' es el dato a insertar.
 template <typename Tipo >
-void Lista< Tipo >::insertarUltimo(Tipo *dato) {
+void ListaRef< Tipo >::insertarUltimo(Tipo& dato) {
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
 
@@ -171,7 +170,7 @@ void Lista< Tipo >::insertarUltimo(Tipo *dato) {
 // Obtiene el valor del primer elemento de la lista. 
 // POST: se devuelve el dato que se encuentra primero en la lista.
 template <typename Tipo >
-Tipo* Lista< Tipo >::verPrimero() {
+Tipo& ListaRef< Tipo >::verPrimero() {
 	return (this->primero->dato);
 }
 
@@ -179,7 +178,7 @@ Tipo* Lista< Tipo >::verPrimero() {
 // Obtiene el valor del último elemento de la lista. 
 // POST: se devuelve el dato que se encuentra último en la lista.
 template <typename Tipo >
-Tipo* Lista< Tipo >::verUltimo() {
+Tipo& ListaRef< Tipo >::verUltimo() {
 	return (this->ultimo->dato);
 }
 
@@ -187,10 +186,9 @@ Tipo* Lista< Tipo >::verUltimo() {
 // Elimina el primer elemento de la lista. 
 // POST: se retorna el elemento eliminado de la lista.
 template <typename Tipo >
-Tipo* Lista< Tipo >::eliminarPrimero() {
+void ListaRef< Tipo >::eliminarPrimero() {
 	// Tomamos el nodo a borrar
 	Nodo *nodo = this->primero;
-	Tipo *dato = this->primero->dato;
 
 	// El segundo elemento pasa a ser el primero
 	this->primero = this->primero->siguiente;
@@ -201,8 +199,6 @@ Tipo* Lista< Tipo >::eliminarPrimero() {
 
 	// Verificamos si quedan mas elementos en la lista
 	if (this->largo == 0) this->ultimo = 0;
-
-	return dato;
 }
 
 
@@ -210,10 +206,11 @@ Tipo* Lista< Tipo >::eliminarPrimero() {
 // Permite acceder a los índices de la lista mediante la notación lista[i], 
 // donde i es un número entero comprendido entre [0, n-1], siendo n el tamaño
 // de la lista.
+// POST: Si el índice se encuentra fuera de rango, se lanza una excepción.
 template <typename Tipo >
-Tipo* Lista< Tipo >::operator[] (const int indice) {
+Tipo& ListaRef< Tipo >::operator[] (const int indice) {
 	// Corroboramos que el índice sea válido
-	if(indice >= this->largo) return 0;
+	if(indice >= this->largo) throw std::string("ERROR: Indice fuera de rango");
 
 	int i;
 	Nodo *nodo = this->primero;

@@ -32,10 +32,10 @@ RRepeat::RRepeat(int n, int m, int r, int i) {
 RRepeat::~RRepeat() { }
 
 
-// Aplica la regla sobre una pila de transformaciones
-void RRepeat::aplicar(Pila< std::string >& pTransformaciones) {
+// Aplica la regla sobre una lista de transformaciones
+void RRepeat::aplicar(ListaRef< std::string >& lTransformaciones) {
 	// Tomamos la palabra sobre la cual debemos aplicar
-	std::string s = pTransformaciones.verTope();
+	std::string s = lTransformaciones.verUltimo();
 	int sTamanio = s.size();
 
 	// Verificamos si estamos dentro del rango de la palabra
@@ -63,6 +63,6 @@ void RRepeat::aplicar(Pila< std::string >& pTransformaciones) {
 	// Insertamos repetición en string
 	s.insert(ii, sToAppend);
 
-	// Apilamos la transformación
-	pTransformaciones.apilar(s);
+	// Insertamos la transformación en la lista
+	lTransformaciones.insertarUltimo(s);
 }

@@ -9,7 +9,7 @@
 #define REGLA_H
 
 #include <string>
-#include "pila.h"
+#include "listaref.h"
 
 
 
@@ -19,8 +19,8 @@ public:
 	// Destructor
 	virtual ~Regla();
 
-	// Aplica la regla sobre una pila de transformaciones.
-	virtual void aplicar(Pila< std::string >& pTransformaciones) = 0;
+	// Aplica la regla sobre una lista de transformaciones.
+	virtual void aplicar(ListaRef< std::string >& lTransformaciones) = 0;
 
 
 protected:

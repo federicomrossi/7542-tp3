@@ -20,11 +20,11 @@ RPrint::RPrint(Transmisor *tx) : tx(tx) { }
 RPrint::~RPrint() { }
 
 
-// Aplica la regla sobre una pila de transformaciones. La regla emite la
+// Aplica la regla sobre una lista de transformaciones. La regla emite la
 // última modificación realizada.
-void RPrint::aplicar(Pila< std::string >& pTransformaciones) {
-	// Apilamos una copia del tope actual de la pila para poder considerar
-	// a print como una modificación
-	pTransformaciones.apilar(pTransformaciones.verTope());
-	tx->transmitir(pTransformaciones.verTope());
+void RPrint::aplicar(ListaRef< std::string >& lTransformaciones) {
+	// Insertamos una copia del primer elemento de la lista para poder
+	// considerar a print como una modificación
+	lTransformaciones.insertarUltimo(lTransformaciones.verUltimo());
+	tx->transmitir(lTransformaciones.verUltimo());
 }

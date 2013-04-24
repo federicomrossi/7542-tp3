@@ -1,1 +1,0 @@
-echo "word" | ./tp reglas.txt - - > out.txt
