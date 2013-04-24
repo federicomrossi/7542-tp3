@@ -1,0 +1,9 @@
+insert -1 e ;
+print ;        
+insert -1 mos ;
+print ;      
+revert 4 ;    
+insert -1 are ;
+print ;        
+insert -1 mos ;
+print ;    

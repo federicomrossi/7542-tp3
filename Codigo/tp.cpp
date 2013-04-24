@@ -96,8 +96,15 @@ int main(int argc, char* argv[]) {
 	Lista< Regla > lReglas = pReglas.parsear(argv[1], tx);
 
 	// Verificamos que esten activos el transmisor y el receptor
-	if(!rxPalabras->estaActivo() || !tx->estaActivo() || lReglas.estaVacia()) 
+	if(!rxPalabras->estaActivo() || !tx->estaActivo() || lReglas.estaVacia()) {
+		
+		// Liberamos memoria
+		delete rxPalabras;
+		delete tx;
+
+		// Retornamos código de error
 		return 2;
+	}
 	
 	// Ejecutamos el proceso de alteración de palabras
 	WordMangling wordMangling(lReglas);

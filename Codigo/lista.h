@@ -212,6 +212,10 @@ Tipo* Lista< Tipo >::eliminarPrimero() {
 // de la lista.
 template <typename Tipo >
 Tipo* Lista< Tipo >::operator[] (const int indice) {
+
+	// Corroboramos que el índice sea válido
+	if(indice >= this->largo) return 0;
+
 	int i;
 	Nodo *nodo = this->primero;
 

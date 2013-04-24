@@ -5,8 +5,7 @@
  * ***************************************************************************/
 
 
-#include "transmisor.h"
-
+#include "transmisor.h" 
 
 
 // Verifica si el transmisor esta activo.

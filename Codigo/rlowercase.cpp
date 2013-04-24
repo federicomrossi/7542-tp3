@@ -14,10 +14,7 @@
 
 
 // Constructor
-RLowercase::RLowercase(int n, int m) {
-	this->n = n;
-	this->m = m;
-}
+RLowercase::RLowercase(int n, int m) : n(n), m(m) { }
 
 
 // Destructor

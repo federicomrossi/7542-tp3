@@ -50,16 +50,16 @@ public:
 	// PRE: 'dato' es el dato que se desea apilar.
 	// POST: se agregó el nuevo elemento, el cual se encuentra en el tope de
 	// la pila.
-	void apilar(Tipo dato);
+	void apilar(Tipo& dato);
 
 
 	// Saca el primer elemento de la pila.
-	// POST: se retorna el dato que ha sido desapilado.
-	Tipo desapilar();
+	// POST: si no hay elementos que desapilar no hace nada.
+	void desapilar();
 
 	// Obtiene el valor del primer elemento de la pila. 
 	// POST: se devuelve el dato que se encuentra en el tope de la pila
-	Tipo verTope();
+	Tipo& verTope();
 };
 
 
@@ -113,7 +113,7 @@ bool Pila< Tipo >::estaVacia() {
 // POST: se agregó el nuevo elemento, el cual se encuentra en el tope de
 // la pila.
 template <typename Tipo >
-void Pila< Tipo >::apilar(Tipo dato) {
+void Pila< Tipo >::apilar(Tipo& dato) {
 	// Creamos un nuevo nodo
 	Nodo *nodo = new Nodo(dato);
 
@@ -129,12 +129,15 @@ void Pila< Tipo >::apilar(Tipo dato) {
 
 
 // Saca el primer elemento de la pila.
-// POST: se retorna el dato que ha sido desapilado.
+// POST: si no hay elementos que desapilar no hace nada.
 template <typename Tipo >
-Tipo Pila< Tipo >::desapilar() {
+void Pila< Tipo >::desapilar() {
+
+	// Corroboramos que hayan elementos en la pila
+	if(this->cantElementos == 0) return;
+
 	// Tomamos dato del nodo
 	Nodo *nodo = this->primero;
-	Tipo dato = nodo->dato;
 
 	// Desenlazamos nodo y liberamos memoria.
 	if(nodo->siguiente)
@@ -144,15 +147,13 @@ Tipo Pila< Tipo >::desapilar() {
 
 	delete nodo;
 	this->cantElementos--;
-	
-	return dato;
 }
 
 
 // Obtiene el valor del primer elemento de la pila. 
 // POST: se devuelve el dato que se encuentra en el tope de la pila.
 template <typename Tipo >
-Tipo Pila< Tipo >::verTope() {
+Tipo& Pila< Tipo >::verTope() {
 	return (this->primero->dato);
 }
 

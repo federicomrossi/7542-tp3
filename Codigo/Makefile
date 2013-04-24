@@ -163,8 +163,84 @@ $(target): $(o_files)
 clean:
 	$(RM) $(o_files) $(o_files:.o=.deps) $(VGLOGFILE) $(target)
 
-valgrind: 
-	valgrind $(VGFLAGS) ./$(target) reglas.txt in.txt out1.txt
+valgrind1: 
+	valgrind $(VGFLAGS) ./$(target) 01/reglas.txt 01/in.txt -
+
+valgrind2: 
+	valgrind $(VGFLAGS) ./$(target) 02/reglas.txt 02/in.txt -
+
+valgrind3: 
+	valgrind $(VGFLAGS) ./$(target) 03/reglas.txt 03/in.txt -
+
+valgrind4: 
+	valgrind $(VGFLAGS) ./$(target) 04/reglas.txt 04/in.txt -
+
+valgrind5: 
+	valgrind $(VGFLAGS) ./$(target) 05/reglas.txt 05/in.txt -
+
+valgrind6: 
+	valgrind $(VGFLAGS) ./$(target) 06/reglas.txt 06/in.txt -
+
+p1:
+	./tp 01/reglas.txt 01/in.txt -
+
+p2:
+	./tp 02/reglas.txt 02/in.txt -
+
+p3:
+	./tp 03/reglas.txt 03/in.txt -
+
+p4:
+	./tp 04/reglas.txt 04/in.txt -
+
+p5:
+	./tp 05/reglas.txt 05/in.txt -
+
+p6:
+	./tp 06/reglas.txt 06/in.txt -
+
+p1s:	
+	if [ -a 01/_out.txt ] ; \
+	then \
+	     rm 01/_out.txt ; \
+	fi;	
+	./tp 01/reglas.txt 01/in.txt 01/_out.txt
+
+p2s:
+	if [ -a 02/_out.txt ] ; \
+	then \
+	     rm 02/_out.txt ; \
+	fi;
+	./tp 02/reglas.txt 02/in.txt 02/_out.txt
+
+p3s:
+	if [ -a 03/_out.txt ] ; \
+	then 
+	     rm 03/_out.txt ; \
+	fi;
+	./tp 03/reglas.txt 03/in.txt 03/_out.txt
+
+p4s:
+	if [ -a 04/_out.txt ] ; \
+	then \
+	     rm 04/_out.txt ; \
+	fi;
+	./tp 04/reglas.txt 04/in.txt 04/_out.txt
+
+p5s:
+	if [ -a 05/_out.txt ] ; \
+	then \
+	     rm 05/_out.txt ; \
+	fi;
+	./tp 05/reglas.txt 05/in.txt 05/_out.txt
+
+p6s:
+	if [ -a 06/_out.txt ] ; \
+	then \
+	     rm 06/_out.txt ; \
+	fi;
+	./tp 06/reglas.txt 06/in.txt 06/_out.txt
+
 
 cpplint:
 	python ./cpplint.py --filter=`cat filter_options` `find -regextype posix-egrep -regex '.*\.(h|hpp|c|cpp)'`

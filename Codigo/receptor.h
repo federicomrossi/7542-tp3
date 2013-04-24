@@ -9,7 +9,6 @@
 #define RECEPTOR_H
 
 #include <string>
-#include <iostream>
 
 
 

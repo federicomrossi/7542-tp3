@@ -9,6 +9,7 @@
 
 
 #include "tx_salida_estandar.h"
+#include <iostream>
 
 
 

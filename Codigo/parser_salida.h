@@ -9,7 +9,6 @@
 #define PARSER_SALIDA_H
 
 #include <string>
-#include <iostream>
 #include "transmisor.h"
 
 

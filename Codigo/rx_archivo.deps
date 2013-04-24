@@ -1,0 +1,5 @@
+rx_archivo.o rx_archivo.deps : rx_archivo.cpp rx_archivo.h receptor.h
+
+rx_archivo.h:
+
+receptor.h:

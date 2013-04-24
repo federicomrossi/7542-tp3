@@ -27,15 +27,13 @@ private:
 
 public:
 
-	// Constructor
 	explicit TxArchivo(const std::string& nombre_archivo);
 
-	// Destructor
-	~TxArchivo();
+	virtual ~TxArchivo();
 
 	// Se ejecuta la transmisión de un dato hacia un archivo. Se almacena
 	// una palabra por línea.
-	void transmitir(const std::string& palabra);
+	virtual void transmitir(const std::string& palabra);
 };
 
 #endif

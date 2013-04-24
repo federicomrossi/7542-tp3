@@ -1,6 +1,6 @@
 #include <iostream>
-#include "cola.h"
-#include "lista.h"
+//#include "cola.h"
+//#include "lista.h"
 #include "pila.h"
 
 using namespace std;
@@ -107,7 +107,7 @@ void pruebaPila() {
 
 	while(!pila.estaVacia()){
 		cout << pila.verTope()->ver() << endl;
-		cout << pila.desapilar()->ver() << endl;
+		pila.desapilar();
 		if(pila.estaVacia()) cout << "Esta vacia" << endl;
 		else cout << "Tiene elementos" << endl;
 	}

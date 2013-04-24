@@ -9,7 +9,6 @@
 #define REGLA_H
 
 #include <string>
-#include <iostream>
 #include "pila.h"
 
 

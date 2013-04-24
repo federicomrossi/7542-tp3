@@ -1,0 +1,10 @@
+parser_salida.o parser_salida.deps : parser_salida.cpp parser_salida.h transmisor.h \
+ tx_archivo.h tx_salida_estandar.h
+
+parser_salida.h:
+
+transmisor.h:
+
+tx_archivo.h:
+
+tx_salida_estandar.h:

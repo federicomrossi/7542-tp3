@@ -20,7 +20,6 @@
 class TxSalidaEstandar:public Transmisor {
 public:
 
-	// Constructor
 	TxSalidaEstandar();
 
 	// Se ejecuta la transmisión de un dato hacia la salida estándar.

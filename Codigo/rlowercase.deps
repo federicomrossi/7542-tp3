@@ -1,0 +1,7 @@
+rlowercase.o rlowercase.deps : rlowercase.cpp rlowercase.h regla.h pila.h
+
+rlowercase.h:
+
+regla.h:
+
+pila.h:

@@ -1,0 +1,1 @@
+./tp reglas.txt in.txt out.txt

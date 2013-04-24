@@ -19,7 +19,7 @@
 
 
 // Constructor
-RInsert::RInsert(int i, std::string mmm) {
+RInsert::RInsert(int i, const std::string& mmm) {
 	this->i = i;
 	this->mmm = mmm;
 }

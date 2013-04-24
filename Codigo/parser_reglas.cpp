@@ -70,38 +70,40 @@ Lista< Regla > ParserReglas::parsear(const std::string& nombre_archivo,
 		if(instruccion == S_UPPERCASE) {
 			archivo >> n >> m >> fin;
 			lReglas.insertarUltimo(new RUppercase(n, m));
-			continue;	
 		}
 		else if (instruccion == S_LOWERCASE) {
 			archivo >> n >> m >> fin;
 			lReglas.insertarUltimo(new RLowercase(n, m));
-			continue;
 		}
 		else if (instruccion == S_REPEAT) {
 			archivo >> n >> m >> r >> i >> fin;
 			lReglas.insertarUltimo(new RRepeat(n, m, r, i));
-			continue;
 		}
 		else if (instruccion == S_ROTATE) {
 			archivo >> n >> fin;
 			lReglas.insertarUltimo(new RRotate(n));
-			continue;
 		}
 		else if (instruccion == S_INSERT) {
 			archivo >> i >> mmm >> fin;
 			lReglas.insertarUltimo(new RInsert(i, mmm));
-			continue;
 		}
 		else if (instruccion == S_REVERT) {
 			archivo >> i >> fin;
 			lReglas.insertarUltimo(new RRevert(i));
-			continue;
 		}
 		else if (instruccion == S_PRINT) {
 			archivo >> fin;
 			lReglas.insertarUltimo(new RPrint(tx));
-			continue;
-		}			
+		}
+		// Caso en que no matchea con ninguna instrucción. Lo consideramos un
+		// error.
+		else {
+			// Vaciamos la lista y la devolvemos vacía
+			while(!lReglas.estaVacia())
+				delete lReglas.eliminarPrimero();
+			break;
+		}
+
 	}
 
 	// Cerramos el archivo

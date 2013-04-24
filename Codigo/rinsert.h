@@ -31,7 +31,7 @@ private:
 public:
 
 	// Constructor
-	RInsert(int i, std::string mmm);
+	RInsert(int i, const std::string& mmm);
 
 	// Destructor
 	~RInsert();

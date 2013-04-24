@@ -1,0 +1,27 @@
+parser_reglas.o parser_reglas.deps : parser_reglas.cpp parser_reglas.h lista.h regla.h pila.h \
+ transmisor.h ruppercase.h rlowercase.h rrepeat.h rrotate.h rinsert.h \
+ rrevert.h rprint.h
+
+parser_reglas.h:
+
+lista.h:
+
+regla.h:
+
+pila.h:
+
+transmisor.h:
+
+ruppercase.h:
+
+rlowercase.h:
+
+rrepeat.h:
+
+rrotate.h:
+
+rinsert.h:
+
+rrevert.h:
+
+rprint.h:

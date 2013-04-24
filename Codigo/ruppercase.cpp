@@ -14,10 +14,7 @@
 
 
 // Constructor
-RUppercase::RUppercase(int n, int m) {
-	this->n = n;
-	this->m = m;
-}
+RUppercase::RUppercase(int n, int m) : n(n), m(m) { }
 
 
 // Destructor
